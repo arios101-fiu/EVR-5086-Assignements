@@ -12,9 +12,10 @@ book:
   date: today
   chapters:
     - index.qmd
+    - polynomial_plot.qmd
 
-  site-url: https://super-telegram-7v6ve7g.pages.github.io/
-  repo-url: https://github.com/SEFSC/SEFSC-SFD-CFB-Historical-Catch
+  site-url: https://arios101-fiu.github.io/EVR-5086-Assignement1/
+  repo-url: https://github.com/arios101-fiu/EVR-5086-Assignement1
   repo-actions: [edit, source, issue]
   search: true
   

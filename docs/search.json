@@ -4,9 +4,19 @@
     "href": "index.html",
     "title": "EVR-5086 Assignment 1 - Calculus Review",
     "section": "",
-    "text": "1 Introduction\nI learned that there are various ways that I can create and execute Python chunks (Velásquez 2021). Although EVR-5086 class is being taught using python, I have advanced skills in R that I hope will be complementary to the course. I am also fond of sharing science on GitHub. I have learned how GitHub pages combined with Quarto and R Studio are an extraordinary resource for developing and maintaining lab notebooks. In order to get better at using these tools and the reproducibility and accessibility of my future research, I have created a html quarto book and pdf to show my work associated with the course assignments.\n#Set Up\nI started by creating a GitHub account (arios101-fiu) and a GitHub repository with a gitignore and readme.md (EVR-5086-Assignment1). I cloned the repository into R Studio, thereby creating a R project. I copied in a _quarto.yml and index file from another project. I simplified the index file and inserted a reference to create a new reference.bib. Lastly I updated the yml and committed and pushed all changes. This give\n\n\n\n\nVelásquez, Isabella. 2021. “Posit.” https://www.posit.co/.",
+    "text": "Introduction\nI learned that there are various ways that I can create and execute Python chunks in R Studio (Velásquez 2021). Although EVR-5086 class is being taught using python, I have advanced skills in R that I hope will be complementary to the course. I am also fond of sharing science on GitHub. I have learned how GitHub pages combined with Quarto and R Studio are an extraordinary resource for developing and maintaining lab notebooks. In order to get better at using these tools and the reproducibility and accessibility of my future research, I have created a html quarto book and pdf to show my work associated with the course assignments.\n\n\nSet Up\nI started by creating a GitHub account (arios101-fiu) and a GitHub repository with a gitignore and readme.md (EVR-5086-Assignment1). I cloned the repository into R Studio, thereby creating a R project. I copied in a _quarto.yml and index file from another project. I simplified the index file and inserted a reference to create a new reference.bib. I updated the yml, rendered, committed and pushed. Next, I turned on GitHub pages and updated the URLs in the yml and repository. On to the assignment…\n\n\n\n\nVelásquez, Isabella. 2021. “Posit.” https://www.posit.co/.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "polynomial_plot.html",
+    "href": "polynomial_plot.html",
+    "title": "1  Plot the polynomial between x = -1 and x = 1",
+    "section": "",
+    "text": "Observations and the limitations of the numerical derivative. One method is an instantaneous change (associated with he tangent line. The other is an average rate of change between two points.\n\n# Define variables\na &lt;- 1\nn &lt;- 1\nb &lt;- 1\np &lt;- 2\nc &lt;- 1\nq &lt;- 3\n\n# Create vectors and data frame\nx &lt;- seq(from = -1, to = 1, by = 0.1)\n\n# Plot the analytically derivative as a solid line and the numerical derivative as open symbols",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Plot the polynomial between x = -1 and x = 1</span>"
     ]
   }
 ]
