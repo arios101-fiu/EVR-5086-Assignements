@@ -1,0 +1,30 @@
+project:
+  type: book
+  output-dir: docs
+  
+execute:
+  cache: true
+
+book:
+  title: "EVR-5086 Assignment 1 - Calculus Review"
+  downloads: [pdf, docx]
+  author: "Adyan Rios"
+  date: today
+  chapters:
+    - index.qmd
+
+  site-url: https://super-telegram-7v6ve7g.pages.github.io/
+  repo-url: https://github.com/SEFSC/SEFSC-SFD-CFB-Historical-Catch
+  repo-actions: [edit, source, issue]
+  search: true
+  
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    toc-depth: 2
+    
+editor: visual
+
