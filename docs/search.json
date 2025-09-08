@@ -1,0 +1,12 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EVR-5086 Assignment 1 - Calculus Review",
+    "section": "",
+    "text": "1 Introduction\nI learned that there are various ways that I can create and execute Python chunks (Velásquez 2021). Although EVR-5086 class is being taught using python, I have advanced skills in R that I hope will be complementary to the course. I am also fond of sharing science on GitHub. I have learned how GitHub pages combined with Quarto and R Studio are an extraordinary resource for developing and maintaining lab notebooks. In order to get better at using these tools and the reproducibility and accessibility of my future research, I have created a html quarto book and pdf to show my work associated with the course assignments.\n#Set Up\nI started by creating a GitHub account (arios101-fiu) and a GitHub repository with a gitignore and readme.md (EVR-5086-Assignment1). I cloned the repository into R Studio, thereby creating a R project. I copied in a _quarto.yml and index file from another project. I simplified the index file and inserted a reference to create a new reference.bib. Lastly I updated the yml and committed and pushed all changes. This give\n\n\n\n\nVelásquez, Isabella. 2021. “Posit.” https://www.posit.co/.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  }
+]
