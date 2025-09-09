@@ -10,13 +10,23 @@
     ]
   },
   {
-    "objectID": "polynomial_plot.html",
-    "href": "polynomial_plot.html",
-    "title": "1  Plot the polynomial between x = -1 and x = 1",
+    "objectID": "polynomial.html",
+    "href": "polynomial.html",
+    "title": "1  Polynomial Plot",
     "section": "",
-    "text": "Observations and the limitations of the numerical derivative. One method is an instantaneous change (associated with he tangent line. The other is an average rate of change between two points.\n\n# Define variables\na &lt;- 1\nn &lt;- 1\nb &lt;- 1\np &lt;- 2\nc &lt;- 1\nq &lt;- 3\n\n# Create vectors and data frame\nx &lt;- seq(from = -1, to = 1, by = 0.1)\n\n# Plot the analytically derivative as a solid line and the numerical derivative as open symbols",
+    "text": "Observations and the limitations of the numerical derivative. One method is an instantaneous change (associated with he tangent line. The other is an average rate of change between two points.\n\n# Define variables\na &lt;- 1\nn &lt;- 1\nb &lt;- 1\np &lt;- 2\nc &lt;- 1\nq &lt;- 3\n\n# Create x vectors from -1 to 1\nx &lt;- seq(from = -1, to = 1, by = 0.1)\n\n# Calculate the value of y for each value of x\ny &lt;- (a * (x^n)) + (b * (x^p)) + (c * (x^q))\n\n# Calculate the analytical derivatives for each value of x\ndy_dx &lt;- (a * n * (x^(n - 1))) + (b * p * (x^(p - 1))) + (c * q * (x^(q-1)))\n\n# Calculate the numerical derivatives\ndeltay &lt;- diff(y)\ndeltax &lt;- diff(x)\ndeltay_deltax &lt;- deltay / deltax\n\n# For plotting purposes, derive the midpoint\ndeltax_vec &lt;- x[-length(x)] + deltax/2\n\n# Build dataframe for plot\n\n# Plot the analytically derivative as a solid line and the numerical derivative as open symbols",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Plot the polynomial between x = -1 and x = 1</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Polynomial Plot</span>"
+    ]
+  },
+  {
+    "objectID": "tripole.html",
+    "href": "tripole.html",
+    "title": "2  Solve the 2-D Laplace in Excel",
+    "section": "",
+    "text": "I created a 29 by 29 grid of the 2-D Laplace Equation. I included three internal “boundary values”; one high value of 4 and two low values of -2 and -3. I allowed excel to iteratively calculate with 10,000 iterations and a minimum change of 0.0001. Saving as a CSV file, surrounded by explicit zeros, the dimensions of my data were 30 by 30. Additionally, I rounded to four significant digits to see if it would mean that the stagnation areas would be more pronounced.\n\n3 Read in and plot contours\n\n\n4 Plot streamlines",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Solve the 2-D Laplace in Excel</span>"
     ]
   }
 ]

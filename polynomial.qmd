@@ -1,4 +1,4 @@
-# Plot the polynomial between x = -1 and x = 1
+# Polynomial Plot
 
 Observations and the limitations of the numerical derivative. One method is an instantaneous change (associated with he tangent line. The other is an average rate of change between two points.
 

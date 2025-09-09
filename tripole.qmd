@@ -1,6 +1,6 @@
 # Solve the 2-D Laplace in Excel
+I created a 29 by 29 grid of the 2-D Laplace Equation. I included three internal "boundary values"; one high value of 4 and two low values of -2 and -3.  I allowed excel to iteratively calculate with 10,000 iterations and a minimum change of 0.0001. Saving as a CSV file, surrounded by explicit zeros, the dimensions of my data were 30 by 30. Additionally, I rounded to four significant digits to see if it would mean that the stagnation areas would be more pronounced.
 
 # Read in and plot contours
 
 # Plot streamlines
-
