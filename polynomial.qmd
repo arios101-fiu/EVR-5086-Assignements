@@ -1,0 +1,36 @@
+# Plot the polynomial between x = -1 and x = 1
+
+Observations and the limitations of the numerical derivative. One method is an instantaneous change (associated with he tangent line. The other is an average rate of change between two points.
+
+```{r}
+
+# Define variables
+a <- 1
+n <- 1
+b <- 1
+p <- 2
+c <- 1
+q <- 3
+
+# Create x vectors from -1 to 1
+x <- seq(from = -1, to = 1, by = 0.1)
+
+# Calculate the value of y for each value of x
+y <- (a * (x^n)) + (b * (x^p)) + (c * (x^q))
+
+# Calculate the analytical derivatives for each value of x
+dy_dx <- (a * n * (x^(n - 1))) + (b * p * (x^(p - 1))) + (c * q * (x^(q-1)))
+
+# Calculate the numerical derivatives
+deltay <- diff(y)
+deltax <- diff(x)
+deltay_deltax <- deltay / deltax
+
+# For plotting purposes, derive the midpoint
+deltax_vec <- x[-length(x)] + deltax/2
+
+# Build dataframe for plot
+
+# Plot the analytically derivative as a solid line and the numerical derivative as open symbols
+
+```

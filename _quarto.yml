@@ -12,7 +12,8 @@ book:
   date: today
   chapters:
     - index.qmd
-    - polynomial_plot.qmd
+    - polynomial.qmd
+    - tripole.qmd
 
   site-url: https://arios101-fiu.github.io/EVR-5086-Assignement1/
   repo-url: https://github.com/arios101-fiu/EVR-5086-Assignement1

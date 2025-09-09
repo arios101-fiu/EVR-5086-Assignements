@@ -5,4 +5,3 @@ I learned that there are various ways that I can create and execute Python chunk
 # Set Up {.unnumbered}
 
 I started by creating a GitHub account (arios101-fiu) and a GitHub repository with a gitignore and readme.md ([EVR-5086-Assignment1](https://github.com/arios101-fiu/EVR-5086-Assignement1)). I cloned the repository into R Studio, thereby creating a R project. I copied in a \_quarto.yml and index file from another project. I simplified the index file and inserted a reference to create a new reference.bib. I updated the yml, rendered, committed and pushed. Next, I turned on GitHub pages and updated the URLs in the yml and repository. On to the assignment...
-
