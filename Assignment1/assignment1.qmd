@@ -11,7 +11,7 @@ format:
     shift-heading-level-by: -1
 ---
 
-## Assignment 1 - Calculus Review  {.unnumbered}
+## Assignment 1 - Calculus Review {.unnumbered}
 
 {{< include polynomial.qmd >}}
 

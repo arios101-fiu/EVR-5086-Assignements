@@ -12,6 +12,8 @@ I tried working on this part of the assignment in R, but I ran short on time. In
 library(plot3D)
 library(ggplot2)
 library(reticulate)
+py_require(c("matplotlib"))
+reticulate::py_run_string("import matplotlib.pyplot as plt")
 
 # Read in csv file
 h = as.matrix(read.csv("tripole.csv", header = FALSE, row.names = NULL))
@@ -79,7 +81,7 @@ y_vec=np.linspace(-1.5, 1.4, 30)
 X,Y = np.meshgrid(x_vec,y_vec)
 
 # Calculate gradient/partial derivatives
-[dhdy,dhdx]=np.gradient(h,x_vec,y_vec)
+[dhdy,dhdx]=np.gradient(h,y_vec,x_vec)
 ```
 
 ### Surface plot
@@ -116,9 +118,10 @@ cbar.set_label('Ground water potential surface (h)')
 plt.axis('equal');
 qplt=plt.quiver(X,Y,-dhdx,-dhdy, scale=360)
 plt.title('Contour map and flow vectors')
-plt.xlabel('X-axis') 
+plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
 plt.show()
+plt.close('all')
 ```
 
 ## Plot streamlines instead of arrows in @sec-contour
@@ -129,7 +132,13 @@ plt.show()
 
 # Plot streamlines
 plt.contourf(X,Y,h)
-plt.streamplot(X, Y, -dhdx, -dhdy);
-plt.axis('equal');
+cbar=plt.colorbar()
+cbar.set_label('Ground water potential surface (h)')
+plt.axis('equal')
+plt.title('Contour map and streamlines')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.streamplot(X,Y,-dhdx,-dhdy)
 plt.show()
+plt.close('all')
 ```
