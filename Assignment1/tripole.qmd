@@ -1,8 +1,8 @@
-# Solve the 2-D Laplace in Excel
+## Solve the 2-D Laplace in Excel
 
 I created a 28 by 28 grid of the 2-D Laplace Equation. I included three internal "boundary values"; one high value of 4 and two low values of -2 and -3. The two low values were near each other compared to their respective distances to the high value. I allowed excel to iteratively calculate for 10,000 iterations with a minimum change of 0.0001. I saved the file as a CSV file after including explicit zeros surrounding the formulas. The dimensions of my data were 30 by 30. I rounded to four significant digits to see if it would mean that the stagnation areas would be more pronounced.
 
-# Read in and plot contours
+## Read in and plot contours
 
 I tried working on this part of the assignment in R, but I ran short on time. Instead, I pivoted to running python inside of my R Studio Project. This first chunk of code is mostly commented out. I may consider returning to this. Since much of my work is in R, I think it might still be useful for me to bring the python code and examples into my Tidyverse and R for Data Science knowledge foundation.
 
@@ -88,8 +88,8 @@ plt.quiver(X, Y, -dhdx, -dhdy)
 plt.show()
 ```
 
+## Plot streamlines
 
-# Plot streamlines
 ```{python}
 #| label: fig-streamlines
 #| fig-cap: Plot of streamlines using Python. The streamlines are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. . The two low values were near each other compared to their respective distances to the high value. 

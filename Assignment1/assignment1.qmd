@@ -1,0 +1,12 @@
+---
+title: "Assignment 1 – Calculus Review"
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+---
+
+{{< include polynomial.qmd >}}
+
+{{< include tripole.qmd >}}

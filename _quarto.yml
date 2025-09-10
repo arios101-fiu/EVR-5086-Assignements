@@ -6,16 +6,13 @@ execute:
   cache: true
 
 book:
-  title: "EVR-5086 Assignment 1 - Calculus Review"
+  title: "EVR-5086 Assignments"
   downloads: [pdf]
   author: "Adyan Rios"
   date: today
   chapters:
     - index.qmd
-    - polynomial.qmd
-    - tripole.qmd
-  options:
-    book-chapter-level: true
+    - assignment1/assignment1.qmd
 
   site-url: https://arios101-fiu.github.io/EVR-5086-Assignement1/
   repo-url: https://github.com/arios101-fiu/EVR-5086-Assignement1
@@ -27,6 +24,7 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    toc-depth: 2
   pdf:
     toc-depth: 2
     

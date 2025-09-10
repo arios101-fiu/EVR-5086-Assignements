@@ -1,4 +1,4 @@
-# Polynomial Plot
+## Polynomial Plot
 
 Below are the steps I took to complete the first part of EVR-5086 Assignment 1.
 
