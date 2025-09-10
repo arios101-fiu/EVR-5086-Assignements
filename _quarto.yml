@@ -7,7 +7,7 @@ execute:
 
 book:
   title: "EVR-5086 Assignment 1 - Calculus Review"
-  downloads: [pdf, docx]
+  downloads: [pdf]
   author: "Adyan Rios"
   date: today
   chapters:
