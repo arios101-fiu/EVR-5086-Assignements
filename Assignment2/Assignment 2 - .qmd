@@ -1,9 +1,0 @@
----
-title: "Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks using Python"
-format:
-  pdf:
-    toc: true
-    toc-depth: 2
-    number-sections: true
----
-

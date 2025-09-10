@@ -1,4 +1,4 @@
-## Polynomial Plot
+## Plot the polynomial
 
 Below are the steps I took to complete the first part of EVR-5086 Assignment 1.
 
@@ -32,12 +32,12 @@ y <- (a * (x^n)) + (b * (x^p)) + (c * (x^q))
 # Calculate the analytical derivatives for each value of x
 dy_dx <- (a * n * (x^(n - 1))) + (b * p * (x^(p - 1))) + (c * q * (x^(q-1)))
 
-# Calculate the numerical derivatives
+# Calculate the numerical derivatives between each value of x
 deltay <- diff(y)
 deltax <- diff(x)
 deltay_deltax <- deltay / deltax
 
-# For plotting purposes, derive the midpoint
+# For plotting purposes, derive the midpoint across the original values of x
 deltax_vec <- x[-length(x)] + deltax/2
 ```
 
@@ -46,19 +46,13 @@ My next goal was to unite all of the vectors into a long data format. I did this
 ```{r}
 # Build data frames for plot
 plot_prep <- data.frame(x, y, dy_dx) |>
-  dplyr::rename(Polynomial = y,
-                "Analytical derivative" = dy_dx)
+  dplyr::rename(Polynomial = y, "Analytical derivative" = dy_dx)
 
 # Wrangle for ggplot
 plot_tidy <- plot_prep |>
   tidyr::pivot_longer(!x, names_to = "linetype", values_to = "y") |>
-  dplyr::bind_rows(
-    data.frame(
-      x = deltax_vec, 
-      y = deltay_deltax, 
-      linetype = "Numerical derivative"
-    )
-  )
+  dplyr::bind_rows(data.frame(x = deltax_vec, y = deltay_deltax, 
+                              linetype = "Numerical derivative"))
 ```
 
 Lastly, I create the plot and reflect on the observations and limitations of the numerical derivative.
@@ -77,12 +71,17 @@ If the numerical derivative had a significantly lower resolution (e.g. just -1 a
 # and the numerical derivative as open symbols
 polynomial_plot <- ggplot(data = plot_tidy, 
                           aes(x = x, y = y, color = linetype)) +
-  geom_point(data = dplyr::filter(plot_tidy, linetype == "Numerical derivative"), 
-             shape = 21, stroke = 1.25) +
-  geom_line(data = dplyr::filter(plot_tidy, linetype != "Numerical derivative")) +
+  geom_point(
+    data = dplyr::filter(plot_tidy, linetype == "Numerical derivative"), 
+    shape = 21, stroke = 1.25) +
+  geom_line(
+    data = dplyr::filter(plot_tidy, linetype != "Numerical derivative")) +
   theme(legend.title = element_blank()) +
   scale_color_manual(values = c(4, 2, 1)) +
-  theme_minimal()
+  theme_minimal() +
+  theme(legend.title=element_blank()) +
+  labs(title = "EVR-5086 Assignment 1.1", subtitle = 
+         "Plot of polynomial with analytical and numerical derivatives")
 
 polynomial_plot
 

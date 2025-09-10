@@ -4,12 +4,12 @@ Although the EVR-5086 class is being taught using Python, my prior experience is
 
 ## Set Up {.unnumbered}
 
-I started by creating a GitHub account (username: arios101-fiu). Then, I created a GitHub repository with a gitignore and readme.md. Initially, the repository was called EVR-5086-Assignement1, but I updated it to EVR-5086-Assignements ([EVR-5086-Assignements](https://github.com/arios101-fiu/EVR-5086-Assignement1)). I cloned the repository into R Studio, thereby creating a R project. I copied in a \_quarto.yml and index.qmd files from another project. I updated the files, rendered, committed, and pushed. Next, I turned on GitHub pages and updated the URLs in the yml and repository. Before moving on the first assignment in the following chapter, The following R code needs to be run to set up R Studio to run Python.
+I started by creating a GitHub account (username: arios101-fiu). Then, I created a GitHub repository with a gitignore and readme.md. Initially, the repository was called EVR-5086-Assignement1, but I updated it to EVR-5086-Assignments ([EVR-5086-Assignments](https://github.com/arios101-fiu/EVR-5086-Assignement1)). I cloned the repository into R Studio, thereby creating a R project. I copied in a \_quarto.yml and index.qmd files from another project. I updated the files, rendered, committed, and pushed. Next, I turned on GitHub pages and updated the URLs in the yml and repository. Before moving on the first assignment in the following chapter, The following R code needs to be run to set up R Studio to run Python.
 
 ```{r warning=FALSE}
 # Install and activate {reticulate} in R 
 # install.packages("reticulate") # Run once
-library(reticulate)
+# library(reticulate)
 
 # Install matplotlib
 # py_install("matplotlib") # Run once
