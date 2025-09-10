@@ -14,6 +14,8 @@ book:
     - index.qmd
     - polynomial.qmd
     - tripole.qmd
+  options:
+    book-chapter-level: true
 
   site-url: https://arios101-fiu.github.io/EVR-5086-Assignement1/
   repo-url: https://github.com/arios101-fiu/EVR-5086-Assignement1
