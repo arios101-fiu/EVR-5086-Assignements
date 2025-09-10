@@ -1,6 +1,6 @@
 # Introduction {.unnumbered}
 
-I learned that there are various ways that I can create and execute Python chunks in R Studio [@velásquez2021]. Although EVR-5086 class is being taught using python, I have advanced skills in R that I hope will be complementary to the course. I am also fond of sharing science on GitHub. I have learned how GitHub pages combined with Quarto and R Studio are an extraordinary resource for developing and maintaining lab notebooks. In order to get better at using these tools and the reproducibility and accessibility of my future research, I have created a html quarto book and pdf to show my work associated with the course assignments.
+I learned that there are various ways that I can create and execute Python chunks in R Studio [@velásquez2021]. Although EVR-5086 class is being taught using python, I have years of experience using R that I hope will be complementary to some of the python I learn to use course. I am also fond of sharing my work on GitHub. I have learned how GitHub pages combined with Quarto and R Studio are an extraordinary resource for developing and maintaining lab notebooks. In order to get better at using these tools (and the reproducibility and accessibility of my future research) I have created a html quarto book and pdf to show my work associated with the course assignments.
 
 # Set Up {.unnumbered}
 
