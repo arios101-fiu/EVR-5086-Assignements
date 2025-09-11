@@ -11,12 +11,9 @@ I tried working on this part of the assignment in R, but I ran short on time. In
 # Load libraries
 library(plot3D)
 library(ggplot2)
-library(reticulate)
-py_require(c("matplotlib"))
-reticulate::py_run_string("import matplotlib.pyplot as plt")
 
 # Read in csv file
-h = as.matrix(read.csv("tripole.csv", header = FALSE, row.names = NULL))
+h <- as.matrix(read.csv("tripole.csv", header = FALSE, row.names = NULL))
 
 # Create vectors
 x_vec <- seq(-1.5, 1.4, by = 0.1)
@@ -40,11 +37,11 @@ Y <- matrix(rep(y_vec, times = length(x_vec)), nrow = length(y_vec))
 # library(ggplot2)
 # 
 # # Example: compute gradients with finite differences
-# dhdx <- apply(h, 1, diff)  
-# dhdx <- cbind(dhdx, NA)    
+# dhdx <- apply(h, 1, diff)
+# dhdx <- cbind(dhdx, NA)
 # 
-# dhdy <- apply(h, 2, diff)  
-# dhdy <- rbind(dhdy, NA)    
+# dhdy <- apply(h, 2, diff)
+# dhdy <- rbind(dhdy, NA)
 # 
 # # Build data frame
 # dat <- expand.grid(x = x_vec, y = y_vec)
@@ -64,6 +61,19 @@ Y <- matrix(rep(y_vec, times = length(x_vec)), nrow = length(y_vec))
 ```
 
 ### Switch to Python
+
+Start by turning on python in R
+
+```{r}
+# Check if libraries are installed; install if not.
+if (!require("reticulate")) install.packages("reticulate")
+
+# Load reticulate
+library(reticulate)
+
+# Ensures matplotlib is available in the current session
+if (!py_module_available("matplotlib")) py_require(c("matplotlib"))
+```
 
 Switch to using python to create @fig-surface, @fig-vector and @fig-streamlines. I did not identify any stagnation points. My low values were close together, so a saddle effect didn’t appear as it would if they were spaced farther apart.
 

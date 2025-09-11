@@ -5,11 +5,9 @@ Below are the steps I took to complete the first part of EVR-5086 Assignment 1.
 In doing this exercise in R, I started by loading the R libraries I will use in this chapter. I used {ggplot2} for plotting, and {tidyr} and {dplyr} for data wrangling.
 
 ```{r message=FALSE}
-# load libraries
-library(ggplot2)
-library(tidyr)
-library(dplyr)
-
+# Check if libraries are installed; install if not.
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(ggplot2, tidyr, dplyr)
 ```
 
 Next, I defined the variables and created the vectors I will need for the plot.
@@ -23,14 +21,14 @@ p <- 2
 c <- 1
 q <- 3
 
-# Create x vectors from -1 to 1
+# Create x vector from -1 to 1
 x <- seq(from = -1, to = 1, by = 0.1)
 
-# Calculate the value of y for each value of x
+# Calculate a value of y for each value of x
 y <- (a * (x^n)) + (b * (x^p)) + (c * (x^q))
 
 # Calculate the analytical derivatives for each value of x
-dy_dx <- (a * n * (x^(n - 1))) + (b * p * (x^(p - 1))) + (c * q * (x^(q-1)))
+dy_dx <- (a * n * (x^(n - 1))) + (b * p * (x^(p - 1))) + (c * q * (x^(q - 1)))
 
 # Calculate the numerical derivatives between each value of x
 deltay <- diff(y)
@@ -38,20 +36,20 @@ deltax <- diff(x)
 deltay_deltax <- deltay / deltax
 
 # For plotting purposes, derive the midpoint across the original values of x
-deltax_vec <- x[-length(x)] + deltax/2
+deltax_vec <- x[-length(x)] + deltax / 2
 ```
 
 My next goal was to unite all of the vectors into a long data format. I did this by creating a data frame, then pivoting the data to only have the values that will be plotted on the x and y axis, as well as a label. Later, I will use my "linetype" label to define line types as well as the colors and shapes in my plot.
 
 ```{r}
-# Build data frames for plot
+# Build data frames and rename variables for plot
 plot_prep <- data.frame(x, y, dy_dx) |>
   dplyr::rename(Polynomial = y, "Analytical derivative" = dy_dx)
 
-# Wrangle for ggplot
+# Wrangle to long data format and bind in numerical derivative
 plot_tidy <- plot_prep |>
   tidyr::pivot_longer(!x, names_to = "linetype", values_to = "y") |>
-  dplyr::bind_rows(data.frame(x = deltax_vec, y = deltay_deltax, 
+  dplyr::bind_rows(data.frame(x = deltax_vec, y = deltay_deltax,
                               linetype = "Numerical derivative"))
 ```
 
@@ -59,30 +57,36 @@ Lastly, I create the plot and reflect on the observations and limitations of the
 
 @fig-polynomial shows that the numerical derivative, shown as red open circles, is very similar to the analytical derivative, shown as a blue solid line. The good match we see relates to the scale over which we calculated the numerical derivative compared to the scale of the rate of change in the polynomial. When calculating the numerical derivative, we can get the average rate of change between two points.
 
-Note that for the analytical derivative we are only providing the plot with information associated with x values ranging -1 to 1, in steps of 0.1. Meanwhile, the numerical derivative is plotted at the midpoints of our original segments, with x values ranging from -0.95 to 0.95. Including the numerical derivatives in the appropriate position relative to the curved lines plotted between our analytical derivatives results in an overlay of the points and the line.
+Note that for the analytical derivative we are only providing the plot with information associated with x values ranging -1 to 1, in steps of 0.1. Meanwhile, the numerical derivative is plotted at the midpoints of our original segments, with x values ranging from -0.95 to 0.95. Including the numerical derivatives in the appropriate position relative to the curved lines plotted between our analytical derivatives results in the overlay of the points and the line.
 
-If the numerical derivative had a significantly lower resolution (e.g. just -1 and 1), it would not match well, and would be just one point above the "U" shape of the analytical derivative at x = 0. Although that course spacing is an extreme, it helps to emphasize that "grid spacing and position of the computed derivative need to be considered."
+If the numerical derivative had a significantly lower resolution (e.g. just -1 and 1), it would not match well, and would be just one point, at x = 0, above the "U" shaped line representing the analytical derivative. Although such a wide spacing is extreme to consider, it helps to emphasize that grid spacing and location plotted are important considerations when working with numerical derivatives.
 
 ```{r}
 #| label: fig-polynomial
-#| fig-cap: Plot of the polynomial defined by the values provided in EVR-5086 Assignment 1 (black line), along with analytical (blue line) and numerical derivatives (red open circle). 
+#| fig-cap: Polynomial defined by values provided in EVR-5086 Assignment 1 \\n
+#|  (black line), along with analytical derivative (blue line) and numerical \\n
+#|  derivative (red open circle).
+#| fig-alt: "An x-y coordinate grid with graphed inputs colored by category."
 
-# Plot the analytically derivative as a solid line 
+# Plot the analytically derivative as a solid line
 # and the numerical derivative as open symbols
-polynomial_plot <- ggplot(data = plot_tidy, 
+polynomial_plot <- ggplot(data = plot_tidy,
                           aes(x = x, y = y, color = linetype)) +
   geom_point(
-    data = dplyr::filter(plot_tidy, linetype == "Numerical derivative"), 
-    shape = 21, stroke = 1.25) +
+    data = dplyr::filter(plot_tidy, linetype == "Numerical derivative"),
+    shape = 21, stroke = 1.25
+  ) +
   geom_line(
-    data = dplyr::filter(plot_tidy, linetype != "Numerical derivative")) +
+    data = dplyr::filter(plot_tidy, linetype != "Numerical derivative")
+  ) +
   theme(legend.title = element_blank()) +
   scale_color_manual(values = c(4, 2, 1)) +
   theme_minimal() +
-  theme(legend.title=element_blank()) +
-  labs(title = "EVR-5086 Assignment 1.1", subtitle = 
-         "Plot of polynomial with analytical and numerical derivatives")
+  theme(legend.title = element_blank()) +
+  labs(
+    title = "EVR-5086 Assignment 1.1",
+    subtitle = "Plot of polynomial with analytical and numerical derivatives"
+  )
 
 polynomial_plot
-
 ```

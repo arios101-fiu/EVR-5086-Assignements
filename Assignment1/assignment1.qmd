@@ -2,7 +2,7 @@
 title: "Assignment 1 – Calculus Review"
 subtitle: "EVR-5086 Fall 2025"
 author: "Adyan Rios"
-date: "2025-10-10"
+date: "2025-09-11"
 format:
   pdf:
     toc: true
@@ -17,8 +17,8 @@ format:
 
 {{< include tripole.qmd >}}
 
-## Links to Assignment 1 Colab and GitHub
+## Links to Colab and GitHub
 
 [Draft code on Colab](https://colab.research.google.com/drive/1_BJpxgIL9vjXB_Tx_6ufPyzZI1mWZLWr)
 
-[Quarto book chapter on GitHub](http://localhost:3083/assignment1/assignment1.html)
+[Quarto book chapter on GitHub](https://arios101-fiu.github.io/EVR-5086-Assignements/assignment1/assignment1.html)
