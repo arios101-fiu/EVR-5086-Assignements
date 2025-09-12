@@ -10,7 +10,7 @@ book:
   chapters:
     - index.qmd
     - assignment1/rios_evr5086_hw1.qmd
-    - assignment2/assignment2.qmd 
+    - assignment2/rios_evr5086_hw2.qmd 
 
   
   site-url: https://arios101-fiu.github.io/EVR-5086-Assignement1/

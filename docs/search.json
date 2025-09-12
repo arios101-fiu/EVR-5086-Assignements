@@ -54,7 +54,7 @@
     "href": "assignment1/rios_evr5086_hw1.html#plot-streamlines-instead-of-arrows-in-sec-contour",
     "title": "1  Assignment 1 – Calculus Review",
     "section": "1.3 Plot streamlines instead of arrows in Section 1.2.3",
-    "text": "1.3 Plot streamlines instead of arrows in Section 1.2.3\n\n# Plot contour map streamlines\nplt.contourf(X, Y, h) # Draw contours for h on grid coordinates (x,Y)\ncbar = plt.colorbar() # Add colorbar\ncbar.set_label('Ground water potential surface (h)') # Include lable on colorbar\nplt.axis('equal'); # Force equal scaling on x and y\n\n(np.float64(-1.5), np.float64(1.4), np.float64(-1.5), np.float64(1.4))\n\nplt.title('Contour map and streamlines') # Include plot title\nplt.xlabel('X-axis') # Include x-axis label\nplt.ylabel('Y-axis') # Include y-axis label\nplt.streamplot(X, Y, -dhdx4, -dhdy4) # Draw streamlines\n\n&lt;matplotlib.streamplot.StreamplotSet object at 0x00000295307DED10&gt;\n\nplt.show() # Render plot\n\n\n\n\n\n\n\nFigure 1.4: Plot of streamlines using Python. The streamlines are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value.\n\n\n\n\nplt.close('all') # Prevent accidental overplotting onto an old figure",
+    "text": "1.3 Plot streamlines instead of arrows in Section 1.2.3\n\n# Plot contour map streamlines\nplt.contourf(X, Y, h) # Draw contours for h on grid coordinates (x,Y)\ncbar = plt.colorbar() # Add colorbar\ncbar.set_label('Ground water potential surface (h)') # Include lable on colorbar\nplt.axis('equal'); # Force equal scaling on x and y\n\n(np.float64(-1.5), np.float64(1.4), np.float64(-1.5), np.float64(1.4))\n\nplt.title('Contour map and streamlines') # Include plot title\nplt.xlabel('X-axis') # Include x-axis label\nplt.ylabel('Y-axis') # Include y-axis label\nplt.streamplot(X, Y, -dhdx4, -dhdy4) # Draw streamlines\n\n&lt;matplotlib.streamplot.StreamplotSet object at 0x0000022C2B95BC90&gt;\n\nplt.show() # Render plot\n\n\n\n\n\n\n\nFigure 1.4: Plot of streamlines using Python. The streamlines are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value.\n\n\n\n\nplt.close('all') # Prevent accidental overplotting onto an old figure",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Assignment 1 – Calculus Review</span>"
     ]
@@ -70,8 +70,8 @@
     ]
   },
   {
-    "objectID": "assignment2/assignment2.html",
-    "href": "assignment2/assignment2.html",
+    "objectID": "assignment2/rios_evr5086_hw2.html",
+    "href": "assignment2/rios_evr5086_hw2.html",
     "title": "2  Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks using Python",
     "section": "",
     "text": "Assignment 2 Google Colab",
