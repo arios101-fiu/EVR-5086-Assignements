@@ -84,8 +84,7 @@ polynomial_plot <- ggplot(data = plot_tidy,
   theme_minimal() +
   theme(legend.title = element_blank()) +
   labs(
-    title = "EVR-5086 Assignment 1.1",
-    subtitle = "Plot of polynomial with analytical and numerical derivatives"
+    title = "Plot of polynomial with analytical and numerical derivatives"
   )
 
 polynomial_plot

@@ -1,68 +1,10 @@
 ## Solve the 2-D Laplace in Excel
 
-I created a 28 by 28 grid of the 2-D Laplace Equation. I included three internal "boundary values"; one high value of 4 and two low values of -2 and -3. The two low values were near each other compared to their respective distances to the high value. I allowed excel to iteratively calculate for 10,000 iterations with a minimum change of 0.0001. I saved the file as a CSV file after including explicit zeros surrounding the formulas. The dimensions of my data were 30 by 30. I rounded to four significant digits to see if it would mean that the stagnation areas would be more pronounced.
+I created a 28 by 28 grid of the 2-D Laplace Equation. I included three internal "boundary values"; one high value of 4 and two low values of -2 and -3. The two low values were near each other compared to their respective distances to the high value. I allowed excel to iteratively calculate for 10,000 iterations with a minimum change of 0.0001. I saved the file as a CSV file after including explicit zeros surrounding the formulas. The dimensions of my data were 30 by 30. I rounded to four significant digits to see if stagnation areas would be more evident by avoiding calculating of extremely small differences.
 
-### Read in and plot contours
+### Read in and plot contours using Python
 
-I tried working on this part of the assignment in R, but I ran short on time. Instead, I pivoted to running python inside of my R Studio Project. This first chunk of code is mostly commented out. I may consider returning to this. Since much of my work is in R, I think it might still be useful for me to bring the python code and examples into my Tidyverse and R for Data Science knowledge foundation.
-
-```{r}
-
-# Load libraries
-library(plot3D)
-library(ggplot2)
-
-# Read in csv file
-h <- as.matrix(read.csv("tripole.csv", header = FALSE, row.names = NULL))
-
-# Create vectors
-x_vec <- seq(-1.5, 1.4, by = 0.1)
-y_vec <- seq(-1.5, 1.4, by = 0.1)
-
-# Create "np.meshgrid"
-X <- matrix(rep(x_vec, each = length(y_vec)), nrow = length(y_vec))
-Y <- matrix(rep(y_vec, times = length(x_vec)), nrow = length(y_vec))
-
-# # Plot the surface
-# surf3D(
-#   x = X,
-#   y = Y,
-#   z = h,
-#   bty = "b2",
-#   ticktype = "detailed",
-#   phi = 20, theta = 30
-# )
-# 
-# # Plot the contour
-# library(ggplot2)
-# 
-# # Example: compute gradients with finite differences
-# dhdx <- apply(h, 1, diff)
-# dhdx <- cbind(dhdx, NA)
-# 
-# dhdy <- apply(h, 2, diff)
-# dhdy <- rbind(dhdy, NA)
-# 
-# # Build data frame
-# dat <- expand.grid(x = x_vec, y = y_vec)
-# dat$h <- c(h)
-# dat$dhdx <- c(dhdx)
-# dat$dhdy <- c(dhdy)
-# 
-# dat <- expand.grid(x = x_vec, y = y_vec)
-# dat$h <- c(h)
-# dat$dhdx <- c(dhdx)
-# dat$dhdy <- c(dhdy)
-# 
-# ggplot(dat, aes(x, y)) +
-#   geom_contour_filled(aes(z = h)) +
-#   theme_minimal()
-
-```
-
-### Switch to Python
-
-Start by turning on python in R
+Start by turning on Python in R. This requires the package {reticulate} in R which embeds a Python session within the R session. The function py_require() is also used to declare Python packages that will be used in the R session.
 
 ```{r}
 # Check if libraries are installed; install if not.
@@ -71,11 +13,11 @@ if (!require("reticulate")) install.packages("reticulate")
 # Load reticulate
 library(reticulate)
 
-# Ensures matplotlib is available in the current session
+# Ensures matplotlib package is available in the current session
 if (!py_module_available("matplotlib")) py_require(c("matplotlib"))
 ```
 
-Switch to using python to create @fig-surface, @fig-vector and @fig-streamlines. I did not identify any stagnation points. My low values were close together, so a saddle effect didn’t appear as it would if they were spaced farther apart.
+The rest of the assignment is run in Python. First, I import the numpy and matplotlib.pyplot packages and read in the CSV file that I had created in excel. To prepare the data for plotting, I create two arrays using np.linspace() and combine them into a 30 x 30 grid of x and y coordinates using np.meshgrid(). Finally, the partial derivatives for h with respect to x and y are calculated using np.gradient().
 
 ```{python}
 # Import packages
@@ -83,72 +25,81 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load csv file from excel
-h=np.loadtxt('tripole.csv',delimiter=',')
+h = np.loadtxt('tripole.csv',delimiter=',')
 
 # Create a grid of x and y coordinates
-x_vec=np.linspace(-1.5, 1.4, 30)
-y_vec=np.linspace(-1.5, 1.4, 30)
-X,Y = np.meshgrid(x_vec,y_vec)
+x_vec = np.linspace(-1.5, 1.4, 30)
+y_vec = np.linspace(-1.5, 1.4, 30)
+X, Y = np.meshgrid(x_vec, y_vec)
 
 # Calculate gradient/partial derivatives
-[dhdy,dhdx]=np.gradient(h,y_vec,x_vec)
+[dhdy, dhdx] = np.gradient(h, y_vec, x_vec)
+
+# Round to 4 significant figures
+dhdy4 = np.round(dhdy, 4)
+dhdx4 = np.round(dhdx, 4)
 ```
+
+@fig-surface recreates the surface plot that perviously had been explored in Excel. The x- and y-axis range from -1.5 to 1.4, while the h-axis ranges from -3 to 4. @fig-vector shows a contour map with flow vectors. Finally, @fig-streamlines provides a similar plot to @fig-vector, but with streamlines instead of arrows.
+
+Reviewing the contours, flow vectors, and streamlines I did not identify stagnation points. When I selected the two low points, I was expecting a stagnation "saddle effect". However, the proximity and the similarity in values I used did not result in a stagnation area. Interestingly, the majority of the surface plotted consisted of extensive areas of very low gradients. @fig-streamlines shows that the streams would run beyond the edges across approximately 60% of the plotted grid.
+
+The following three Python code chunks created @fig-surface, @fig-vector and @fig-streamlines, respectively.
 
 ### Surface plot
 
 ```{python}
 #| label: fig-surface
-#| fig-cap: Plot of vector arrows using Python. The vectors indicate strength and direction of the negative gradient. The vectors are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value. 
+#| fig-cap: Plot of vector arrows using Python. The vectors indicate strength and direction of the negative gradient. The vectors are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value.
+#| fig-alt: "A slightly rotated 3-D coordinate grid with surface graphed in blue." 
 
-fig = plt.figure(figsize=[4,4],dpi=300)
-ax = plt.axes(projection = '3d')
-ax.set_title(" " * 20 + 'Surface plot using Python'+ " " * 20)
-ax.set_xlabel('X-axis')
-ax.set_ylabel('Y-axis')
-ax.set_zlabel('H-axis', rotation=90)
-ax.zaxis.labelpad=-0.7 
-ax.tick_params(axis='x', labelsize=8)
-ax.tick_params(axis='y', labelsize=8)
-ax.tick_params(axis='z', labelsize=8)
-plt.tight_layout()
-surf = ax.plot_surface(X,Y,h)
-plt.show()
-plt.close('all')
+fig = plt.figure(figsize = [4, 4], dpi = 300) #Create empty figure
+ax = plt.axes(projection = '3d') # Create plot region
+ax.set_title(" " * 20 + 'Surface plot'+ " " * 20)  # Include plot title and pad space for h-axis label
+ax.set_xlabel('x-axis') # Include x-axis label
+ax.set_ylabel('y-axis')  # Include y-axis label
+ax.set_zlabel('h-axis', rotation = 90) # Include vertical h-axis label
+surf = ax.plot_surface(X,Y,h) # Plot surface
+plt.show() # Render plot
+plt.close('all') # Prevent accidental overplotting onto an old figure
 ```
 
 ### Plot contour map and flow vectors {#sec-contour}
 
 ```{python}
 #| label: fig-vector
-#| fig-cap: Plot of vector arrows using Python. The vectors indicate strength and direction of the negative gradient. The vectors are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value. 
+#| fig-cap: Plot of vector arrows using Python. The vectors indicate strength and direction of the negative gradient. The vectors are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value.
+#| fig-alt: "An x-y coordinate grid with contours ranging from low values in dark blue to high values yellow, with black arrows overlaid as vectors."
 
-plt.contourf(X,Y,h)
-cbar=plt.colorbar()
-cbar.set_label('Ground water potential surface (h)')
-plt.axis('equal');
-qplt=plt.quiver(X,Y,-dhdx,-dhdy, scale=360)
-plt.title('Contour map and flow vectors')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.show()
-plt.close('all')
+# Plot contour map and flow vectors
+plt.contourf(X, Y, h) # Draw contours for h on grid coordinates (x,Y)
+cbar = plt.colorbar() # Add colorbar
+cbar.set_label('Ground water potential surface (h)') # Include lable on colorbar
+plt.axis('equal'); # Force equal scaling on x and y
+plt.title('Contour map and flow vectors') # Include plot title
+plt.xlabel('X-axis') # Include x-axis label
+plt.ylabel('Y-axis') # Include y-axis label
+qplt = plt.quiver(X, Y, -dhdx4, -dhdy4, scale = 360) # Draw vector arrows; note: large scales values make smaller arrows
+plt.show() # Render plot
+plt.close('all') # Prevent accidental overplotting onto an old figure
 ```
 
 ## Plot streamlines instead of arrows in @sec-contour
 
 ```{python}
 #| label: fig-streamlines
-#| fig-cap: Plot of streamlines using Python. The streamlines are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value. 
+#| fig-cap: Plot of streamlines using Python. The streamlines are displayed over the contours of a tri-pole solution with a high value of 4 and lows of -2 and -3. The two low values were near each other compared to their respective distances to the high value.
+#| fig-alt: "An x-y coordinate grid with contours ranging from low values in dark blue to high values yellow, with blue streamlines overlaid."
 
-# Plot streamlines
-plt.contourf(X,Y,h)
-cbar=plt.colorbar()
-cbar.set_label('Ground water potential surface (h)')
-plt.axis('equal')
-plt.title('Contour map and streamlines')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.streamplot(X,Y,-dhdx,-dhdy)
-plt.show()
-plt.close('all')
+# Plot contour map streamlines
+plt.contourf(X, Y, h) # Draw contours for h on grid coordinates (x,Y)
+cbar = plt.colorbar() # Add colorbar
+cbar.set_label('Ground water potential surface (h)') # Include lable on colorbar
+plt.axis('equal'); # Force equal scaling on x and y
+plt.title('Contour map and streamlines') # Include plot title
+plt.xlabel('X-axis') # Include x-axis label
+plt.ylabel('Y-axis') # Include y-axis label
+plt.streamplot(X, Y, -dhdx4, -dhdy4) # Draw streamlines
+plt.show() # Render plot
+plt.close('all') # Prevent accidental overplotting onto an old figure
 ```

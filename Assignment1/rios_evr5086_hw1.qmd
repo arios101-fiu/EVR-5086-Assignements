@@ -2,7 +2,7 @@
 title: "Assignment 1 – Calculus Review"
 subtitle: "EVR-5086 Fall 2025"
 author: "Adyan Rios"
-date: "2025-09-11"
+date: "2025-09-12"
 format:
   pdf:
     toc: true
