@@ -1,0 +1,75 @@
+## Data Visualization
+
+```{r message=FALSE}
+# Check if libraries are installed; install if not.
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(here, stringr, leaflet, webshot2)
+```
+
+```{r}
+# Read in data 
+hurdat_ar <- readRDS("hurdat.Rds")
+
+# Create a reusable function
+track_storm <- function(dat, storm_id, zoom = 4,
+                            initial_location = c(20, -50)) {
+  # Filter and order the points for the selected storm
+  storm <- dat |>
+    filter(storm_id == !!storm_id, !is.na(lat), !is.na(lon)) |>
+    mutate(status = str_trim(status)) |>
+    arrange(yyyymmdd, hhmm)
+
+  if (nrow(storm) == 0) stop("No points found for this storm_id.")
+
+  # Build popup: date + time + status (e.g., "1851-06-25 00:00 — HU")
+  popup_txt <- paste0(
+    format(storm$yyyymmdd, "%Y-%m-%d"), " ", storm$hhmm,
+    " — ", storm$status
+  )
+  
+  # Create map
+  m <- leaflet(options = leafletOptions(worldCopyJump = TRUE)) |>
+    addTiles() |>
+    setView(lng = initial_location[2], lat = initial_location[1], zoom = zoom) |>
+    addPolylines(
+      lng = storm$lon,
+      lat = storm$lat,
+      color = "blue",
+      weight = 2.5,
+      opacity = 1
+    ) |>
+    addMarkers(
+      lng = storm$lon,
+      lat = storm$lat,
+      popup = popup_txt
+    )
+  
+  file_html <- here("assignment2", paste0(storm_id, "_map.html"))
+  htmlwidgets::saveWidget(m, file_html, selfcontained = TRUE)
+  m
+}
+
+leaflet_png <- function(m) {
+  file_png = here("assignment2", "hurricane_tracks_map.png")
+  html_tmp <- here("assignment2", "hurricane_tracks_map_tmp.html")
+  htmlwidgets::saveWidget(m, html_tmp, selfcontained = TRUE)
+  webshot2::webshot(html_tmp, file = file_png, vwidth = 1400, 
+                    vheight = 900, zoom = 1)
+  file_png
+}
+
+```
+
+```{r}
+#| eval: !expr knitr::is_latex_output()   # show widget only in HTML
+m <- track_storm(hurdat_ar, storm_id = "AL092021")
+m
+```
+
+```{r}
+#| fig-cap: "Leaflet storm track (static screenshot for PDF)."
+#| eval: !expr knitr::is_html_output()    # only in PDF
+m <- track_storm(hurdat_ar, storm_id = "AL092021")
+png_file <- leaflet_png(m)
+knitr::include_graphics(png_file)
+```
