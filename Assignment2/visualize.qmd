@@ -12,7 +12,7 @@ hurdat_ar <- readRDS("hurdat.Rds")
 
 # Create a reusable function
 track_storm <- function(dat, storm_id, zoom = 4,
-                            initial_location = c(20, -50)) {
+                            init_location = c(20, -50)) {
   # Filter and order the points for the selected storm
   storm <- dat |>
     filter(storm_id == !!storm_id, !is.na(lat), !is.na(lon)) |>
@@ -30,7 +30,7 @@ track_storm <- function(dat, storm_id, zoom = 4,
   # Create map
   m <- leaflet(options = leafletOptions(worldCopyJump = TRUE)) |>
     addTiles() |>
-    setView(lng = initial_location[2], lat = initial_location[1], zoom = zoom) |>
+    setView(lng = init_location[2], lat = init_location[1], zoom = zoom) |>
     addPolylines(
       lng = storm$lon,
       lat = storm$lat,
@@ -55,21 +55,26 @@ leaflet_png <- function(m) {
   htmlwidgets::saveWidget(m, html_tmp, selfcontained = TRUE)
   webshot2::webshot(html_tmp, file = file_png, vwidth = 1400, 
                     vheight = 900, zoom = 1)
-  file_png
+  return(file_png)
 }
 
 ```
 
+::: {.content-visible when-format="html"}
+
 ```{r}
-#| eval: !expr knitr::is_latex_output()   # show widget only in HTML
 m <- track_storm(hurdat_ar, storm_id = "AL092021")
 m
 ```
 
-```{r}
-#| fig-cap: "Leaflet storm track (static screenshot for PDF)."
-#| eval: !expr knitr::is_html_output()    # only in PDF
+:::
+
+::: {.content-visible when-format="pdf"}
+
+```{r message=FALSE}
 m <- track_storm(hurdat_ar, storm_id = "AL092021")
 png_file <- leaflet_png(m)
 knitr::include_graphics(png_file)
 ```
+
+:::

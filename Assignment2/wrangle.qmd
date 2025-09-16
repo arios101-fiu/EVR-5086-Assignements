@@ -6,7 +6,6 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(here, curl, tidyr, dplyr, lubridate)
 ```
 
-
 ```{r}
 # Specify the source and output file name and location
 url <- "https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2024-040425.txt"
@@ -25,7 +24,7 @@ lines <- readLines("hurdat.txt")                     # Read text file
 storm_headers <- lines[grepl("^AL", lines)]          # Keep only storm headers
 header_parts <- strsplit(storm_headers, ",")         # Split based on ","
 header_matrix <- do.call(rbind, header_parts)        # Convert to matrix
-header_df <- as.data.frame(header_matrix)            # Convert to to data frame
+header_df <- as.data.frame(header_matrix)            # Convert to data frame
 colnames(header_df) <- c("storm_id", "name", "rows") # Name columns
 
 # Repeat each header based on the 'rows' column in tidyr

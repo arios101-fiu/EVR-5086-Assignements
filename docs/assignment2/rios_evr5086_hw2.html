@@ -9,7 +9,7 @@
 <meta name="author" content="Adyan Rios">
 <meta name="dcterms.date" content="2025-09-16">
 
-<title>2&nbsp; Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks using Python – EVR-5086 Assignments</title>
+<title>2&nbsp; Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks – EVR-5086 Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,6 +103,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+
+<script src="../site_libs/leaflet-1.3.1/leaflet.js"></script>
+
+<link href="../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+
+<script src="../site_libs/proj4-2.6.2/proj4.min.js"></script>
+
+<script src="../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+
+<link href="../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+
+<script src="../site_libs/leaflet-binding-2.2.3/leaflet.js"></script>
+
 
 
 </head>
@@ -116,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment2/rios_evr5086_hw2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks using Python</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment2/rios_evr5086_hw2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -160,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../assignment2/rios_evr5086_hw2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks using Python</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks</span></span></a>
   </div>
 </li>
     </ul>
@@ -185,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks using Python</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Assignment 2 - Reading On-line Data and Visualizing Hurricane Tracks</span></h1>
 <p class="subtitle lead">EVR-5086 Fall 2025</p>
 </div>
 
@@ -241,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>storm_headers <span class="ot">&lt;-</span> lines[<span class="fu">grepl</span>(<span class="st">"^AL"</span>, lines)]          <span class="co"># Keep only storm headers</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>header_parts <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(storm_headers, <span class="st">","</span>)         <span class="co"># Split based on ","</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>header_matrix <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, header_parts)        <span class="co"># Convert to matrix</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>header_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(header_matrix)            <span class="co"># Convert to to data frame</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>header_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(header_matrix)            <span class="co"># Convert to data frame</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(header_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"storm_id"</span>, <span class="st">"name"</span>, <span class="st">"rows"</span>) <span class="co"># Name columns</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat each header based on the 'rows' column in tidyr</span></span>
@@ -297,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a reusable function</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>track_storm <span class="ot">&lt;-</span> <span class="cf">function</span>(dat, storm_id, <span class="at">zoom =</span> <span class="dv">4</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">initial_location =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="sc">-</span><span class="dv">50</span>)) {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">init_location =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="sc">-</span><span class="dv">50</span>)) {</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter and order the points for the selected storm</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  storm <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(storm_id <span class="sc">==</span> <span class="sc">!!</span>storm_id, <span class="sc">!</span><span class="fu">is.na</span>(lat), <span class="sc">!</span><span class="fu">is.na</span>(lon)) <span class="sc">|&gt;</span></span>
@@ -315,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create map</span></span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">options =</span> <span class="fu">leafletOptions</span>(<span class="at">worldCopyJump =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setView</span>(<span class="at">lng =</span> initial_location[<span class="dv">2</span>], <span class="at">lat =</span> initial_location[<span class="dv">1</span>], <span class="at">zoom =</span> zoom) <span class="sc">|&gt;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setView</span>(<span class="at">lng =</span> init_location[<span class="dv">2</span>], <span class="at">lat =</span> init_location[<span class="dv">1</span>], <span class="at">zoom =</span> zoom) <span class="sc">|&gt;</span></span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addPolylines</span>(</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">lng =</span> storm<span class="sc">$</span>lon,</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">lat =</span> storm<span class="sc">$</span>lat,</span>
@@ -340,27 +360,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  htmlwidgets<span class="sc">::</span><span class="fu">saveWidget</span>(m, html_tmp, <span class="at">selfcontained =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  webshot2<span class="sc">::</span><span class="fu">webshot</span>(html_tmp, <span class="at">file =</span> file_png, <span class="at">vwidth =</span> <span class="dv">1400</span>, </span>
 <span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vheight =</span> <span class="dv">900</span>, <span class="at">zoom =</span> <span class="dv">1</span>)</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>  file_png</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(file_png)</span>
 <span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">track_storm</span>(hurdat_ar, <span class="at">storm_id =</span> <span class="st">"AL092021"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">track_storm</span>(hurdat_ar, <span class="at">storm_id =</span> <span class="st">"AL092021"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>png_file <span class="ot">&lt;-</span> <span class="fu">leaflet_png</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>file:///C:/Users/adyan.rios/Documents/github/EVR-5086-Assignements/Assignment2/hurricane_tracks_map_tmp.html screenshot completed</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(png_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hurricane_tracks_map.png" class="img-fluid figure-img" width="700"></p>
-<figcaption>Leaflet storm track (static screenshot for PDF).</figcaption>
-</figure>
-</div>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-b2a0a8cd457df1511b0a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-b2a0a8cd457df1511b0a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"worldCopyJump":true},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addPolylines","args":[[[[{"lng":[-78.90000000000001,-79.5,-80.2,-80.90000000000001,-81.7,-82.59999999999999,-83.2,-83.5,-84.7,-85.7,-86.59999999999999,-87.59999999999999,-88.7,-89.59999999999999,-90.2,-90.40000000000001,-90.59999999999999,-90.8,-90.90000000000001,-90.5,-90,-89.40000000000001,-88.40000000000001,-87.09999999999999,-85.5,-83.59999999999999,-81.5,-78.5,-75.59999999999999,-72.8,-69.7,-67.2,-64.7,-63.6,-62.7,-62.4,-63.1,-63.9,-63.9,-63.5],"lat":[16.5,17.4,18.3,19.4,20.4,21.5,22.4,22.6,23.5,24.4,25.6,26.7,27.6,28.5,29.1,29.2,29.9,30.6,31.5,32.2,33,33.8,34.4,35.1,35.8,36.7,37.7,39,39.8,40.6,41.4,43.3,45.4,46.6,47.5,48.6,48.8,48.7,47.6,46.6]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"blue","weight":2.5,"opacity":1,"fill":false,"fillColor":"blue","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[[16.5,17.4,18.3,19.4,20.4,21.5,22.4,22.6,23.5,24.4,25.6,26.7,27.6,28.5,29.1,29.2,29.9,30.6,31.5,32.2,33,33.8,34.4,35.1,35.8,36.7,37.7,39,39.8,40.6,41.4,43.3,45.4,46.6,47.5,48.6,48.8,48.7,47.6,46.6],[-78.90000000000001,-79.5,-80.2,-80.90000000000001,-81.7,-82.59999999999999,-83.2,-83.5,-84.7,-85.7,-86.59999999999999,-87.59999999999999,-88.7,-89.59999999999999,-90.2,-90.40000000000001,-90.59999999999999,-90.8,-90.90000000000001,-90.5,-90,-89.40000000000001,-88.40000000000001,-87.09999999999999,-85.5,-83.59999999999999,-81.5,-78.5,-75.59999999999999,-72.8,-69.7,-67.2,-64.7,-63.6,-62.7,-62.4,-63.1,-63.9,-63.9,-63.5],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["2021-08-26 12:00 — TD","2021-08-26 18:00 — TS","2021-08-27 00:00 — TS","2021-08-27 06:00 — TS","2021-08-27 12:00 — TS","2021-08-27 18:00 — HU","2021-08-27 23:25 — HU","2021-08-28 00:00 — HU","2021-08-28 06:00 — HU","2021-08-28 12:00 — HU","2021-08-28 18:00 — HU","2021-08-29 00:00 — HU","2021-08-29 06:00 — HU","2021-08-29 12:00 — HU","2021-08-29 16:55 — HU","2021-08-29 18:00 — HU","2021-08-30 00:00 — HU","2021-08-30 06:00 — HU","2021-08-30 12:00 — TS","2021-08-30 18:00 — TS","2021-08-31 00:00 — TD","2021-08-31 06:00 — TD","2021-08-31 12:00 — TD","2021-08-31 18:00 — TD","2021-09-01 00:00 — TD","2021-09-01 06:00 — TD","2021-09-01 12:00 — EX","2021-09-01 18:00 — EX","2021-09-02 00:00 — EX","2021-09-02 06:00 — EX","2021-09-02 12:00 — EX","2021-09-02 18:00 — EX","2021-09-03 00:00 — EX","2021-09-03 06:00 — EX","2021-09-03 12:00 — EX","2021-09-03 18:00 — EX","2021-09-04 00:00 — EX","2021-09-04 06:00 — EX","2021-09-04 12:00 — EX","2021-09-04 18:00 — EX"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[20,-50],4,[]],"limits":{"lat":[16.5,48.8],"lng":[-90.90000000000001,-62.4]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
