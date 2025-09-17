@@ -1,0 +1,27 @@
+---
+title: "Assignment 3 - "
+subtitle: "EVR-5086 Fall 2025"
+author: "Adyan Rios"
+date: "2025-09-23"
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+---
+
+## Assignment 3 - TBD {.unnumbered}
+
+{{< include exercise1.qmd >}} 
+
+{{< include exercise2.qmd >}}
+
+{{< include exercise3.qmd >}}
+
+{{< include exercise4.qmd >}}
+
+## Links to Colab and GitHub
+
+[Assignment 2 Google Colab](https://colab.research.google.com/drive/1B3U0Re5mH4aCAfyJ31baLeZROpBaTjkc)
+
+[Quarto book chapter on GitHub](https://arios101-fiu.github.io/EVR-5086-Assignements/assignment3/rios_evr5086_hw3.html)
