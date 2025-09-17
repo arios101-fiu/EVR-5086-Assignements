@@ -1,14 +1,38 @@
-## Data Visualization
+## Data Visualization {#sec-map}
+
+The data visualization has several exciting features. Because the data set was already formatted into an analysis-ready structure, this part of the assignment focuses only on visualizing a given storm ID. It begins with defining and loading the packages used later in the code. The leaflet and webshot2 packages were new to me. Leaflet allows me to create an interactive map, similar to folium in Python.
+
+Since I am rendering my report to both HTML and PDF, I needed different approaches for each format. In HTML, I was able to embed the leaflet map directly as an htmlwidget. For PDF output, I learned to use conditional content so the widget only displays in HTML, and a static snapshot (generated with webshot2) is included in the PDF. For both versions, I provided a figure caption and alt text to improve clarity and accessibility.
+
+To add more complexity and depth to the track visualization, I incorporated a color scale representing wind speed. This makes the map more informative and highlights storm intensity changes along its path. I think interactive widgets can serve as a useful precursor to fully developed applications for data visualization. I am excited about the continued advancements in interactive figures which allow non-coders to explore and interact with data in more meaningful ways. Although I did not implement dynamic selection in the HTML rendering of this assignment, I looked into some of the latest developments in  [Quarto Dashboards](https://quarto.org/docs/dashboards/interactivity/). For now, I set up an optional user input similar to what we did in Python. When the R code is run interactively, the user is prompted to provide a storm name; otherwise, a default storm ID is used to ensure the code still runs smoothly during rendering.
+
 
 ```{r message=FALSE}
 # Check if libraries are installed; install if not.
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(here, stringr, leaflet, webshot2)
+pacman::p_load(here, stringr, leaflet, webshot2, dplyr)
 ```
 
 ```{r}
+default_name = "AL092021"
+
+# If interactive (R console / RStudio), ask the user
+if (interactive()) {
+  storm_id <- readline(
+    prompt = paste0("Enter a storm ID using ALnnyyy format [default = ",   default_name, "]: ")
+    )
+  if (storm_id == "") storm_id <- default_name
+} else {
+  # If running non-interactively (e.g., knitting to PDF/HTML), use default
+  storm_id <- default_name
+}
+
+```
+
+
+```{r}
 # Read in data 
-hurdat_ar <- readRDS("hurdat.Rds")
+hurdat_ar <- readRDS(here("assignment2", "hurdat.Rds"))
 
 # Create a reusable function
 track_storm <- function(dat, storm_id, zoom = 4,
@@ -27,22 +51,35 @@ track_storm <- function(dat, storm_id, zoom = 4,
     " — ", storm$status
   )
   
+  # Definecolor range
+  pal <- colorNumeric(
+    palette = "YlOrRd",   # yelloe = weak winds, red = strong winds
+    domain = storm$wind   # The range of wind speeds
+  )
+  
   # Create map
-  m <- leaflet(options = leafletOptions(worldCopyJump = TRUE)) |>
-    addTiles() |>
-    setView(lng = init_location[2], lat = init_location[1], zoom = zoom) |>
-    addPolylines(
-      lng = storm$lon,
-      lat = storm$lat,
-      color = "blue",
-      weight = 2.5,
-      opacity = 1
-    ) |>
-    addMarkers(
-      lng = storm$lon,
-      lat = storm$lat,
-      popup = popup_txt
-    )
+  m <- leaflet(storm) |>
+  addTiles() |>
+  addPolylines(lng = ~lon, lat = ~lat, color = "blue", 
+               weight = 2.5, opacity = 1) |>
+  addCircleMarkers(
+    lng = ~lon,
+    lat = ~lat,
+    color = ~pal(wind),       # marker color by wind
+    radius = 5,               # size of marker
+    stroke = FALSE,
+    fillOpacity = 0.8,
+    popup = ~paste0(format(yyyymmdd, "%Y-%m-%d"), " ", hhmm,
+                    "<br>Wind: ", wind, " kt",
+                    "<br>Status: ", status)
+  ) |>
+  addLegend(
+    "bottomright",
+    pal = pal,
+    values = ~wind,
+    title = "Wind (kt)",
+    opacity = 1
+  )
   
   file_html <- here("assignment2", paste0(storm_id, "_map.html"))
   htmlwidgets::saveWidget(m, file_html, selfcontained = TRUE)
@@ -63,7 +100,10 @@ leaflet_png <- function(m) {
 ::: {.content-visible when-format="html"}
 
 ```{r}
-m <- track_storm(hurdat_ar, storm_id = "AL092021")
+#| label: fig-storm_html
+#| fig-cap: !expr paste0("Interactive storm track ", storm_id, " (HTML only).")
+#| fig-alt: "A insteractive map of a storm track shown as a blue line, with points along the line colored from yellow to red to reflect wind intensity."
+m <- track_storm(hurdat_ar, storm_id = storm_id)
 m
 ```
 
@@ -72,7 +112,10 @@ m
 ::: {.content-visible when-format="pdf"}
 
 ```{r message=FALSE}
-m <- track_storm(hurdat_ar, storm_id = "AL092021")
+#| label: fig-storm_png
+#| fig-cap: !expr paste0("Static storm track ", storm_id, " (PDF).")
+#| fig-alt: "A map of a storm track shown as a blue line, with points along the line colored from yellow to red to reflect wind intensity."
+m <- track_storm(hurdat_ar, storm_id = storm_id)
 png_file <- leaflet_png(m)
 knitr::include_graphics(png_file)
 ```

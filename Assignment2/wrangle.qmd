@@ -1,4 +1,12 @@
-## Data Retrieval and Parsing
+## Data Retrieval and Parsing {#sec-wrangle}
+
+The purpose of this code is to access and format the HURDAT2 dataset into an analysis-ready format. Since I expect to explore these data further, I did not want to perform wrangling and formatting only on filtered subsets. Instead, I extracted the header information for each storm record, expanded it, and attached it to each corresponding data line.
+
+There are many possible approaches to this task, including base R methods. I chose to use tidyr and dplyr because their piping syntax allows me to write modular code without overwriting objects or cluttering the global environment. While I could have created a single long script, I prefer a modular workflow where each section has a clear intention. For example, this part of the workflow focuses only on data retrieval and formatting.
+
+At the end of @sec-wrangle, I save the resulting data frame as an .RDS file. I prefer RDS over RData because RDS requires explicit object naming when loaded, which supports better coding practices and clearer, more reproducible code. 
+
+The steps of the code are annotated in the code chunks, and the first chunk defines and loads all the required libraries used in @sec-wrangle. One limitation of my approach is that effective use or contribution requires familiarity with GitHub, RStudio, and Quarto.
 
 ```{r message=FALSE}
 # Check if libraries are installed; install if not.

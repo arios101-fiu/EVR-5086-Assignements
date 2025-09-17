@@ -21,4 +21,4 @@ format:
 
 [Draft code on Colab](https://colab.research.google.com/drive/1_BJpxgIL9vjXB_Tx_6ufPyzZI1mWZLWr)
 
-[Quarto book chapter on GitHub](https://arios101-fiu.github.io/EVR-5086-Assignements/assignment1/assignment1.html)
+[Quarto book chapter on GitHub](https://arios101-fiu.github.io/EVR-5086-Assignements/assignment1/rios_evr5086_hw1.html)
