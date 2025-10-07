@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adyan Rios">
-<meta name="dcterms.date" content="2025-09-23">
+<meta name="dcterms.date" content="2025-09-24">
 
-<title>3&nbsp; Assignment 3 - – EVR-5086 Assignments</title>
+<title>3&nbsp; Assignment 3 - Normal distributions and the Galton board – EVR-5086 Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,6 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../assignment4/rios_evr5086_hw4.html" rel="next">
 <link href="../assignment2/rios_evr5086_hw2.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment3/rios_evr5086_hw3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 3 -</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment3/rios_evr5086_hw3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 3 - Normal distributions and the Galton board</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +167,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../assignment3/rios_evr5086_hw3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 3 -</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 3 - Normal distributions and the Galton board</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment4/rios_evr5086_hw4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Assignment 4</span></span></a>
   </div>
 </li>
     </ul>
@@ -145,12 +186,32 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#assignment-3---tbd" id="toc-assignment-3---tbd" class="nav-link active" data-scroll-target="#assignment-3---tbd">Assignment 3 - TBD</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">3.1</span> Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">3.2</span> Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">3.3</span> Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">3.4</span> Exercise 4</a></li>
-  <li><a href="#links-to-colab-and-github" id="toc-links-to-colab-and-github" class="nav-link" data-scroll-target="#links-to-colab-and-github"><span class="header-section-number">3.5</span> Links to Colab and GitHub</a></li>
+  <li><a href="#assignment-3---normal-distributions-and-the-galton-board" id="toc-assignment-3---normal-distributions-and-the-galton-board" class="nav-link active" data-scroll-target="#assignment-3---normal-distributions-and-the-galton-board">Assignment 3 - Normal distributions and the Galton board</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">3.1</span> Exercise 1</a>
+  <ul class="collapse">
+  <li><a href="#modify-code-from-lab0_sample.r" id="toc-modify-code-from-lab0_sample.r" class="nav-link" data-scroll-target="#modify-code-from-lab0_sample.r"><span class="header-section-number">3.1.1</span> Modify code from lab0_sample.R</a></li>
+  <li><a href="#the-standard-normal-distribution" id="toc-the-standard-normal-distribution" class="nav-link" data-scroll-target="#the-standard-normal-distribution"><span class="header-section-number">3.1.2</span> The <strong>Standard</strong> normal distribution</a></li>
+  <li><a href="#the-standard-normal-distribution-with-only-10-samples" id="toc-the-standard-normal-distribution-with-only-10-samples" class="nav-link" data-scroll-target="#the-standard-normal-distribution-with-only-10-samples"><span class="header-section-number">3.1.3</span> The <strong>Standard</strong> normal distribution with only 10 samples</a></li>
+  <li><a href="#plotting-the-normal-distribution-from-wikipedia" id="toc-plotting-the-normal-distribution-from-wikipedia" class="nav-link" data-scroll-target="#plotting-the-normal-distribution-from-wikipedia"><span class="header-section-number">3.1.4</span> Plotting the normal distribution from Wikipedia</a></li>
+  </ul></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">3.2</span> Exercise 2</a>
+  <ul class="collapse">
+  <li><a href="#sea-level-anomaly-data" id="toc-sea-level-anomaly-data" class="nav-link" data-scroll-target="#sea-level-anomaly-data"><span class="header-section-number">3.2.1</span> Sea level anomaly data</a></li>
+  <li><a href="#lab1_sample.r-question-1" id="toc-lab1_sample.r-question-1" class="nav-link" data-scroll-target="#lab1_sample.r-question-1"><span class="header-section-number">3.2.2</span> lab1_sample.R Question 1</a></li>
+  <li><a href="#rates-of-temperature-change" id="toc-rates-of-temperature-change" class="nav-link" data-scroll-target="#rates-of-temperature-change"><span class="header-section-number">3.2.3</span> Rates of temperature change</a></li>
+  </ul></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">3.3</span> Exercise 3</a>
+  <ul class="collapse">
+  <li><a href="#implement-the-galton-board" id="toc-implement-the-galton-board" class="nav-link" data-scroll-target="#implement-the-galton-board"><span class="header-section-number">3.3.1</span> Implement the Galton Board</a></li>
+  </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">4</span> Exercise</a>
+  <ul class="collapse">
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">4.1</span> Exercise 4</a>
+  <ul class="collapse">
+  <li><a href="#generate-histograms-and-q-q-plots" id="toc-generate-histograms-and-q-q-plots" class="nav-link" data-scroll-target="#generate-histograms-and-q-q-plots"><span class="header-section-number">4.1.1</span> Generate histograms and Q-Q plots</a></li>
+  </ul></li>
+  <li><a href="#links-to-colab-and-github" id="toc-links-to-colab-and-github" class="nav-link" data-scroll-target="#links-to-colab-and-github"><span class="header-section-number">4.2</span> Links to Colab and GitHub</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/arios101-fiu/EVR-5086-Assignement1/edit/main/assignment3/rios_evr5086_hw3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/arios101-fiu/EVR-5086-Assignement1/blob/main/assignment3/rios_evr5086_hw3.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/arios101-fiu/EVR-5086-Assignement1/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -159,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 3 -</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 3 - Normal distributions and the Galton board</span></h1>
 <p class="subtitle lead">EVR-5086 Fall 2025</p>
 </div>
 
@@ -177,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 23, 2025</p>
+      <p class="date">September 24, 2025</p>
     </div>
   </div>
   
@@ -189,27 +250,893 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="assignment-3---tbd" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="assignment-3---tbd">Assignment 3 - TBD</h2>
+<section id="assignment-3---normal-distributions-and-the-galton-board" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assignment-3---normal-distributions-and-the-galton-board">Assignment 3 - Normal distributions and the Galton board</h2>
+<p>For this assignment follows the readings and exercises in “Risk Analysis in the Earth Sciences: A Lab Manual with Exercises in R” Version 3.</p>
 </section>
 <section id="exercise-1" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">3.1</span> Exercise 1</h2>
+<p>In this exercise I modified the provided lab0_sample.R to produce a histogram based on 10<sup>4</sup> samples from a normal distribution with mean 5 and standard deviation 2 <a href="#fig-hist_1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. I then produced two histograms for the standard normal distribution which has a mean 0 and standard deviation 1. The first was based on 10<sup>4</sup> samples (<a href="#fig-hist_2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>) and the second one included only 10 samples (<a href="#fig-hist_3" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>). In addition to the modifications outlined by the exercise, I included a legend on each plot, and I dynamically read sample size into the y-axis label. I organized my code using variable names that differed by the subscript (1-3) associated with each of the three respective histograms. A main difference between <a href="#fig-hist_1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> and the other two histograms is how the distribution is centered around the mean of 5 and has a wider range of values compared to <a href="#fig-hist_2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. These differences are driven by the differences in the respective means and standard deviations. Since the first two histograms have a large number of samples being drawn from the normal distribution function rnorm(), they resulting plots show the expected bell curve shape. However, since the third histogram (<a href="#fig-hist_3" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>) is based on only 10 samples, we do not see the definition of the bell curve at all. When only using 10 samples, the standard normal distribution results in a smaller range of values than it did with 10<sup>4</sup> samples. When the number of samples is large, there are more opportunities for values to be sampled. I explore the related probability density in the next part of this exercise.</p>
+<p>In the final part of this first exercise, I plotted the formula for the normal distribution provided in EVR-5086 Assignment 3 (<a href="#fig-pdf" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>). I noticed a small difference between the equation in the assignment and the one on Wikipedia, which I included in the same plot as a second curve in blue. Overall, exploring these formulas helped me better understand how normal distribution’s characteristic symmetric bell curve shape is driven in its formula by e<sup>-x</sup>2. As shown in the examples in <a href="#fig-pdf" class="quarto-xref">Figure&nbsp;<span>3.4</span></a> larger the value in the exponential term of the natural log, the wider the distribution. In this exercise I do not need to use the full formula that is on Wikipedia because, when mean is 0 and the standard deviation is 1, some constant multipliers simplify to 1. In the R code, I used text() and expression() to include color-coded mathematical expressions in the top-left corner of the plot.</p>
+<section id="modify-code-from-lab0_sample.r" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="modify-code-from-lab0_sample.r"><span class="header-section-number">3.1.1</span> Modify code from lab0_sample.R</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modified code from lab0_sample.R</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set values</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>num_1 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>   <span class="co"># number of random draws</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mu_1 <span class="ot">&lt;-</span> <span class="dv">5</span>       <span class="co"># mean of normal distribution to draw from</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sigma_1 <span class="ot">&lt;-</span> <span class="dv">2</span>    <span class="co"># standard deviation of normal distribution</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample randomly from a normal distribution </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>x_1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> num_1, <span class="at">mean =</span> mu_1, <span class="at">sd =</span> sigma_1)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results as a histogram</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>hist_1 <span class="ot">&lt;-</span> <span class="fu">hist</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  x_1,                 <span class="co"># Vector for the histogram</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Adyan Rios"</span>, <span class="co"># Set title to my name</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Variable"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="fu">paste0</span>(<span class="st">"Frequency (n = "</span>, <span class="fu">sprintf</span>(<span class="st">"%.2e"</span>, num_1), <span class="st">")"</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">xaxt =</span> <span class="st">"n"</span>           <span class="co"># Turn off x-axis values</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Add custom x-axis ticks</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> hist_1<span class="sc">$</span>breaks)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Indicate mean</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> mu_1, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Indicate mean ± SD</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">c</span>(mu_1 <span class="sc">+</span> sigma_1, mu_1 <span class="sc">-</span> sigma_1), </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>, <span class="st">"Mean ± SD"</span>), <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">bty =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-hist_1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of normal data.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hist_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-hist_1-1.png" class="img-fluid figure-img" alt="Histogram of normal data." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hist_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Histogram generated from 1.00e+04 random samples from a normal distribution associated with mean 5 and standard deviation 2. The mean is indicated by a vertical red line. Blue dashed vertical lines show the mean minus the standard deviation and the mean plus the standard deviation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-standard-normal-distribution" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="the-standard-normal-distribution"><span class="header-section-number">3.1.2</span> The <strong>Standard</strong> normal distribution</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set values</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>num_2 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>   <span class="co"># number of random draws</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mu_2 <span class="ot">&lt;-</span> <span class="dv">0</span>       <span class="co"># mean of normal distribution to draw from</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sigma_2 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># standard deviation of normal distribution</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample randomly from a normal distribution </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>x_2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> num_2, <span class="at">mean =</span> mu_2, <span class="at">sd =</span> sigma_2)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results as a histogram</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>hist_2 <span class="ot">&lt;-</span> <span class="fu">hist</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  x_2,                 <span class="co"># Vector for the histogram</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"The Standard normal distribution"</span>, <span class="co"># Set title </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Variable"</span>,   </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="fu">paste0</span>(<span class="st">"Frequency (n = "</span>, <span class="fu">sprintf</span>(<span class="st">"%.2e"</span>, num_2), <span class="st">")"</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">xaxt =</span> <span class="st">"n"</span>           <span class="co"># Turn off x-axis values</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Add custom x-axis ticks</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> hist_2<span class="sc">$</span>breaks)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Indicate mean</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> mu_2, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Indicate mean ± SD</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">c</span>(mu_2 <span class="sc">+</span> sigma_2, mu_2 <span class="sc">-</span> sigma_2), </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>, <span class="st">"Mean ± SD"</span>), <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">bty =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-hist_2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of normal data.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hist_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-hist_2-1.png" class="img-fluid figure-img" alt="Histogram of normal data." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hist_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Histogram generated from 1.00e+04 random samples from a normal distribution associated with mean 0 and standard deviation 1. The mean is indicated by a vertical red line. Blue dashed vertical lines show the mean minus the standard deviation and the mean plus the standard deviation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-standard-normal-distribution-with-only-10-samples" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="the-standard-normal-distribution-with-only-10-samples"><span class="header-section-number">3.1.3</span> The <strong>Standard</strong> normal distribution with only 10 samples</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set values</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>num_3 <span class="ot">&lt;-</span> <span class="dv">10</span>   <span class="co"># number of random draws</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mu_3 <span class="ot">&lt;-</span> <span class="dv">0</span>       <span class="co"># mean of normal distribution to draw from</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sigma_3 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># standard deviation of normal distribution</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample randomly from a normal distribution </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>x_3 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> num_3, <span class="at">mean =</span> mu_3, <span class="at">sd =</span> sigma_3)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results as a histogram</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>hist_3 <span class="ot">&lt;-</span> <span class="fu">hist</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  x_3,                 <span class="co"># Vector for the histogram</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"The Standard normal distribution"</span>, <span class="co"># Set title </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Variable"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="fu">paste0</span>(<span class="st">"Frequency (n = "</span>, <span class="fu">sprintf</span>(<span class="st">"%.2e"</span>, num_3), <span class="st">")"</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">xaxt =</span> <span class="st">"n"</span>           <span class="co"># Turn off x-axis values</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Add custom x-axis ticks</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> hist_3<span class="sc">$</span>breaks)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Indicate mean</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> mu_3, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Indicate mean ± SD</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">c</span>(mu_3 <span class="sc">+</span> sigma_3, mu_3 <span class="sc">-</span> sigma_3), </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>, <span class="st">"Mean ± SD"</span>), <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">bty =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-hist_3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Histogram of normal data.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hist_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-hist_3-1.png" class="img-fluid figure-img" alt="Histogram of normal data." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hist_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Histogram generated from 1.00e+01 random samples from a normal distribution associated with mean 0 and standard deviation 1. The mean is indicated by a vertical red line. Blue dashed vertical lines show the mean minus the standard deviation and the mean plus the standard deviation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-the-normal-distribution-from-wikipedia" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="plotting-the-normal-distribution-from-wikipedia"><span class="header-section-number">3.1.4</span> Plotting the normal distribution from Wikipedia</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a, <span class="dv">1</span> <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> <span class="fl">3.14</span>)) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>(a<span class="sc">^</span><span class="dv">2</span>)), <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">type =</span> <span class="st">"o"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Probability density function"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Variable x"</span>, <span class="co"># Label x-axis</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"f(x)"</span>)       <span class="co"># Label x-axis</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(a, <span class="dv">1</span> <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> <span class="fl">3.14</span>)) <span class="sc">*</span> <span class="fu">exp</span>( <span class="sc">-</span>(a<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="dv">2</span>), <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.35</span>, <span class="fu">expression</span>(<span class="fu">f</span>(x) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">%*%</span> <span class="fl">3.14</span>)) <span class="sc">*</span> <span class="fu">exp</span>( <span class="sc">-</span>(x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="dv">2</span>)), </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">cex =</span> <span class="fl">0.6</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.3</span>, <span class="fu">expression</span>(<span class="fu">f</span>(x) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">%*%</span> <span class="fl">3.14</span>)) <span class="sc">*</span> <span class="fu">exp</span>( <span class="sc">-</span>(x<span class="sc">^</span><span class="dv">2</span>))), </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">cex =</span> <span class="fl">0.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-pdf" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of normal data.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-pdf-1.png" class="img-fluid figure-img" alt="Plot of normal data." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: Probability density plot for the normal distribution. The standard normal distribution (mean 0 and standard deviation 1) is shown by the curve in blue. Meanwhile, a normal distribution is also plotted in red with a slightly simplified equation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
 </section>
 <section id="exercise-2" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">3.2</span> Exercise 2</h2>
+<p>In this part of the assignment, I plotted sea-level data and temperature rates of change over time. To save time when re-running the code, I added if statements that only download the data if they do not exist locally.</p>
+<p>I ran into a couple early challenges. First, working with .txt files was a little challenging because I am used to .csv files, which usually already have descriptive column names and straightforward data frame structures. In trying a few options for how to read in the sea level data, I learned how to automatically ignore the comments beginning with “%” which streamline my code so I did not have to hard-code the lines to read. The next challenge was the way the time variable. I had not worked with decimal dates before, but I used date_decimal() from the lubridate to extract the dates into a format that was easier for me to interpret In reproducing and saving the three-panel plot (Atmospheric CO₂ (top), global mean surface-air temperature anomaly (middle), and global mean sea level anomaly (bottom)), I followed the code provided in lab1_sample.R. I then reproduced it in a multi-panel plot that renders directly in this document (<a href="#fig-three-panel" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>).</p>
+<p>To answer how much atmospheric carbon dioxide concentrations, global mean temperatures, and sea levels changed between 1900 and the early part of the present century I subset each data set into “early” (1900-1910) and “recent” (2000-2010) and compared the mean values. The atmospheric carbon increased by 25.64 ppm (73%). Temperature and sea level both fluctuate between seasonally, but similar to the change seen for CO2, they also increased over those 100 years. The mean temperature increased by 0.93 degrees, and the mean sea level increased by 194 mm.</p>
+<p>The last part of Exercise 2 involved calculating the rates of temperature change. I checked the data source to clarify why I was using column 14 and why the value was being divided by 100. I learned that the anomalies are stored as hundredths of a degree. Also, column 14 reflects information summarized across the 12 months, which are also provided in separate columns. Initially, I plotted the rate of change on the same axis as the original data series (<a href="#fig-dt1" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>) using a red line for the rate and adding a legend. I also produced separate panels to more easily compare them (<a href="#fig-dt2" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>). The results show that prior to 1970 there are fewer years with extreme increases or decreases. After the 1970, the dips and peaks are consistently more extreme in both direction. Although there are a few strong dips in the later half of the time series, summing over the values, indicated that the increases are more extreme overall. This corresponds with the upward trend observed in the global mean temperature anomaly plot, where the cyclical nature of the series is also evident.</p>
+<section id="sea-level-anomaly-data" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="sea-level-anomaly-data"><span class="header-section-number">3.2.1</span> Sea level anomaly data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if libraries are installed; install if not.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pacman"</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(here, lubridate, ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a folder for storing downloaded files</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"assignment3/data"</span>))) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="fu">here</span>(<span class="st">"assignment3/data"</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Download and read in the sea level anomaly data from Jevrejeva et al. (2014)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"assignment3/data/jevrejeva2014_gmsl.txt"</span>))) {</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://psmsl.org/products/reconstructions/gslGPChange2014.txt"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"assignment3/data/jevrejeva2014_gmsl.txt"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in and ignore lines with comments (starting with %)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>sl.data <span class="ot">&lt;-</span>  <span class="fu">read.table</span>(<span class="fu">here</span>(<span class="st">"assignment3/data/jevrejeva2014_gmsl.txt"</span>), </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                       <span class="at">comment =</span> <span class="st">"%"</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign column names</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sl.data) <span class="ot">&lt;-</span>  </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"rate_mm"</span>, <span class="st">"rate_err_mm"</span>, <span class="st">"gmsl_mm"</span>, <span class="st">"gmsl_err_mm"</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Format date</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>sl.data<span class="sc">$</span>date_decimal <span class="ot">&lt;-</span> lubridate<span class="sc">::</span><span class="fu">date_decimal</span>(sl.data<span class="sc">$</span>time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditionally download files used in lab1_sample.R</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"assignment3/data/co2_mm_mlo.txt"</span>))) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_mm_mlo.txt"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"assignment3/data/co2_mm_mlo.txt"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"assignment3/data/law2006.txt"</span>))) {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2006.txt"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"assignment3/data/law2006.txt"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"assignment3/data/GLB.Ts+dSST.txt"</span>))) {</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt"</span>, </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"assignment3/data/GLB.Ts+dSST.txt"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the CO2 data  </span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>loa.co2.data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="fu">here</span>(<span class="st">"assignment3/data/co2_mm_mlo.txt"</span>),</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>                           <span class="at">skip =</span> <span class="dv">57</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>law.co2.data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="fu">here</span>(<span class="st">"assignment3/data/law2006.txt"</span>), </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                           <span class="at">skip =</span> <span class="dv">183</span>, <span class="at">nrows =</span> <span class="dv">2004</span>, </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                           <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the GISS temperature data  </span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>begin.rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">31</span>, <span class="dv">53</span>, <span class="dv">75</span>, <span class="dv">97</span>, <span class="dv">119</span>, <span class="dv">141</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>num.rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">14</span>)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>temp.data <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">nrow =</span> <span class="fu">sum</span>(num.rows), <span class="at">ncol =</span> <span class="dv">20</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>temp.data[<span class="dv">1</span><span class="sc">:</span> num.rows[<span class="dv">1</span>], ] <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.table</span>(<span class="st">"data/GLB.Ts+dSST.txt"</span>, <span class="at">skip =</span> begin.rows[<span class="dv">1</span>], </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrows =</span> num.rows[<span class="dv">1</span>], <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span> <span class="fu">length</span>(begin.rows)) {</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  temp.data[(<span class="fu">sum</span>(num.rows[<span class="dv">1</span><span class="sc">:</span> i<span class="sc">-</span> <span class="dv">1</span>])<span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span> <span class="fu">sum</span>(num.rows[<span class="dv">1</span><span class="sc">:</span> i]), ] <span class="ot">&lt;-</span> </span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.matrix</span>(<span class="fu">read.table</span>(<span class="st">"data/GLB.Ts+dSST.txt"</span>, <span class="at">skip =</span> begin.rows[i], </span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>                         <span class="at">nrows =</span> num.rows[i], <span class="at">header =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a folder to store figues as pdfs  </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"assignment3/figures"</span>))) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="fu">here</span>(<span class="st">"assignment3/figures"</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="fu">here</span>(<span class="st">"assignment3/figures/lab1_sample_plot2.pdf"</span>),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">4.5</span>, <span class="at">height =</span> <span class="dv">6</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>), <span class="at">cex =</span> <span class="fl">0.66</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(law.co2.data[, <span class="dv">1</span>], law.co2.data[, <span class="dv">6</span>], <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>), </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">290</span>, <span class="dv">400</span>), <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>, </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Atmospheric carbon dioxide (ppm)"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(loa.co2.data[, <span class="dv">3</span>], loa.co2.data[, <span class="dv">5</span>], <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="fu">c</span>(<span class="st">"Law Dome ice core record"</span>, <span class="st">"Mauna Loa measurements"</span>), </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"blue"</span>), <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp.data[, <span class="dv">1</span>], temp.data[, <span class="dv">14</span>]<span class="sc">/</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>), </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.6</span>, <span class="fl">0.7</span>), <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>, </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Global mean temperature anomaly (K)"</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl.data<span class="sc">$</span>time, sl.data<span class="sc">$</span>gmsl_mm , <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">200</span>), <span class="at">bty =</span> <span class="st">"l"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>, </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Sea level anomoly (mm)"</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the device and make the return value invisible</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">dev.off</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Re run code to print in Quarto html and pdf</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CO2</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(law.co2.data[, <span class="dv">1</span>], law.co2.data[, <span class="dv">6</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">290</span>, <span class="dv">400</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>, <span class="at">ylab =</span> <span class="st">"Atmospheric CO2 (ppm)"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(loa.co2.data[, <span class="dv">3</span>], loa.co2.data[, <span class="dv">5</span>], <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="st">"Law Dome ice core record"</span>, <span class="st">"Mauna Loa measurements"</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"blue"</span>), <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperature anomaly</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp.data[, <span class="dv">1</span>], temp.data[, <span class="dv">14</span>] <span class="sc">/</span> <span class="dv">100</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.6</span>, <span class="fl">0.7</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Global mean temperature anomaly (K)"</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Sea level anomaly</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl.data<span class="sc">$</span>time, sl.data<span class="sc">$</span>gmsl_mm,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">200</span>),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Sea level anomaly (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-three-panel" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-three-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-three-panel" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-three-panel-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three time-series panels for CO₂, temperature anomaly, and sea level anomaly.">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-three-panel-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-three-panel-1.png" class="img-fluid figure-img" data-ref-parent="fig-three-panel" alt="Three time-series panels for CO₂, temperature anomaly, and sea level anomaly." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-three-panel-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Atmospheric CO2
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-three-panel" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-three-panel-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three time-series panels for CO₂, temperature anomaly, and sea level anomaly.">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-three-panel-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-three-panel-2.png" class="img-fluid figure-img" data-ref-parent="fig-three-panel" alt="Three time-series panels for CO₂, temperature anomaly, and sea level anomaly." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-three-panel-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Global mean temperature anomaly
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-three-panel" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-three-panel-3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three time-series panels for CO₂, temperature anomaly, and sea level anomaly.">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-three-panel-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-three-panel-3.png" class="img-fluid figure-img" data-ref-parent="fig-three-panel" alt="Three time-series panels for CO₂, temperature anomaly, and sea level anomaly." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-three-panel-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Sea level anomaly (mm)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-three-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Atmospheric CO₂ (top), global mean surface-air temperature anomaly (middle), and global mean sea level anomaly (bottom), 1900–~2015.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="lab1_sample.r-question-1" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="lab1_sample.r-question-1"><span class="header-section-number">3.2.2</span> lab1_sample.R Question 1</h3>
+<p>By how much have atmospheric carbon dioxide concentrations, global mean temperatures, and sea levels changed between 1900 and the early part of the present century?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create filtered subsets of each data set to calculate differences</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>early_co2 <span class="ot">&lt;-</span> law.co2.data[law.co2.data<span class="sc">$</span>V1 <span class="sc">&gt;=</span> <span class="dv">1900</span> <span class="sc">&amp;</span> law.co2.data<span class="sc">$</span>V1 <span class="sc">&lt;</span> <span class="dv">1910</span>, ]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>recent_co2 <span class="ot">&lt;-</span> law.co2.data[law.co2.data<span class="sc">$</span>V1 <span class="sc">&gt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> law.co2.data<span class="sc">$</span>V1 <span class="sc">&lt;</span> <span class="dv">2010</span>, ]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>early_temp <span class="ot">&lt;-</span> temp.data[temp.data[, <span class="dv">1</span>] <span class="sc">&gt;=</span> <span class="dv">1900</span> <span class="sc">&amp;</span> temp.data[, <span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">1910</span>, ]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>recent_temp <span class="ot">&lt;-</span>temp.data[temp.data[, <span class="dv">1</span>] <span class="sc">&gt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> temp.data[, <span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">2010</span>, ]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>early_sea <span class="ot">&lt;-</span> sl.data[<span class="fu">floor</span>(sl.data<span class="sc">$</span>time) <span class="sc">&gt;=</span> <span class="dv">1900</span> <span class="sc">&amp;</span> <span class="fu">floor</span>(sl.data<span class="sc">$</span>time) <span class="sc">&lt;</span> <span class="dv">1910</span>, ]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>recent_sea <span class="ot">&lt;-</span> sl.data[<span class="fu">floor</span>(sl.data<span class="sc">$</span>time) <span class="sc">&gt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> <span class="fu">floor</span>(sl.data<span class="sc">$</span>time) <span class="sc">&lt;</span> <span class="dv">2010</span>, ]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percent changes (c) or percent differences (pc)</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>pc_co2 <span class="ot">&lt;-</span> <span class="fu">round</span>((<span class="fu">mean</span>(recent_co2[, <span class="dv">6</span>]) <span class="sc">-</span> <span class="fu">mean</span>(early_co2[, <span class="dv">6</span>])) <span class="sc">/</span> </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">mean</span>(early_co2[, <span class="dv">6</span>]), <span class="dv">4</span>)<span class="sc">*</span><span class="dv">100</span> <span class="co">#25.64 percent</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>c_co2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(recent_co2[, <span class="dv">6</span>]) <span class="sc">-</span> <span class="fu">mean</span>(early_co2[, <span class="dv">6</span>]) <span class="co">#73.2 percent</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>c_temp <span class="ot">&lt;-</span> <span class="fu">mean</span>(recent_temp[, <span class="dv">14</span>]<span class="sc">/</span><span class="dv">100</span>) <span class="sc">-</span> <span class="fu">mean</span>(early_temp[, <span class="dv">14</span>]<span class="sc">/</span><span class="dv">100</span>) <span class="co">#0.93 degrees</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>c_sea <span class="ot">&lt;-</span> <span class="fu">mean</span>(recent_sea<span class="sc">$</span>gmsl_mm) <span class="sc">-</span> <span class="fu">mean</span>(early_sea<span class="sc">$</span>gmsl_mm) <span class="co">#194 mm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rates-of-temperature-change" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="rates-of-temperature-change"><span class="header-section-number">3.2.3</span> Rates of temperature change</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate of change</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dT_dt_1 <span class="ot">&lt;-</span> <span class="fu">diff</span>(temp.data[, <span class="dv">14</span>])<span class="sc">/</span><span class="dv">100</span> <span class="sc">/</span> <span class="fu">diff</span>(temp.data[, <span class="dv">1</span>])</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>midpoint_t <span class="ot">&lt;-</span> temp.data[<span class="sc">-</span><span class="fu">length</span>(temp.data[, <span class="dv">1</span>]), <span class="dv">1</span>] <span class="sc">+</span> .<span class="dv">5</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># GISS records sometimes use 100 to represent the average temperature</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp.data[, <span class="dv">1</span>], temp.data[, <span class="dv">14</span>] <span class="sc">/</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>), </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.6</span>, <span class="fl">0.9</span>), <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>, </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Global mean temperature anomaly (K)</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="st">     and annual rate of change"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(midpoint_t, dT_dt_1, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Global mean temperature anomaly (K)"</span>, </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Annual rate of temperature change"</span>), </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Second y-axis for the rate</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(temp.data[, 1], temp.data[, 14] / 100, </span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#      type = "l", xlim = c(1900, 2020),</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">#      ylim = c(-0.6, 0.7), bty = "n", xlab = "Time (yr)",</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">#      ylab = "Global mean temperature anomaly (K)", lwd = 1.5)</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co"># par(new = TRUE) # Prepare for second axis</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(midpoint_t, dT_dt_1, type = "l", </span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">#      xlim = c(1900, 2020), ylim = c(-0.5, 0.5),</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co">#      col = "red", xaxt = "n", yaxt = "n", xlab = "", ylab = "", , lwd = 1.5)</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># axis(side = 4, col = "red", col.axis = "red")</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co"># mtext("Annual rate of change", side = 4, line = 3, col = "red")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dt1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-dt1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Overalaid plots of global mean temperature anomaly (black) and its annual rate of change (red).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-nrow="2">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp.data[, <span class="dv">1</span>], temp.data[, <span class="dv">14</span>] <span class="sc">/</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>), </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.6</span>, <span class="fl">0.7</span>), <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Global mean temperature anomaly (K)"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(midpoint_t, dT_dt_1, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">2020</span>),, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.3</span>, <span class="fl">0.3</span>), <span class="at">bty =</span> <span class="st">"n"</span>, </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Time (yr)"</span>, <span class="at">ylab =</span> <span class="st">"Annual rate of change"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-dt2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-dt2" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-dt2-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-dt2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-dt2-1.png" class="img-fluid figure-img" data-ref-parent="fig-dt2" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-dt2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Global mean temperature anomaly
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-dt2" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-dt2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-dt2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-dt2-2.png" class="img-fluid figure-img" data-ref-parent="fig-dt2" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-dt2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Annual rate of change
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Global mean temperature anomaly (black) and its annual rate of change (red).
+</figcaption>
+</figure>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
 </section>
 <section id="exercise-3" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">3.3</span> Exercise 3</h2>
+<p>To prepare for this exercise, I included example code that was provided in the lab manual. I left it in because I reuse parts of it later, including the sampling examples to identify resulting “Galton Board” bins, and the code to generate histograms and Q-Q plots. For the actual exercise further down in this chapter, I created a function I could reuse for each variation across different number of balls. Using the function with intentional return vectors allowed me not to worry about clearing existing variables or figures from memory. I ran the function with 10 bins, and with 10, 20, 30, 100, and 10^4 balls. With 10 and 20 balls the histogram and Q-Q plot do not look normal. At about 30 balls the histogram and Q-Q plot begin to look approximately normal (<a href="#fig-galton3" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>). Once the number of balls is large, as in the runs with 10<sup>2</sup> (<a href="#fig-galton4" class="quarto-xref">Figure&nbsp;<span>4.4</span></a>) and very large with 10<sup>4</sup> balls (<a href="#fig-galton5" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>), the histogram looks normal but the Q-Q plot shows a slight departure. This may relate to the discrete and bounded nature of the bin outcomes, while the Q-Q plot may be better suited for continuous data.</p>
+<section id="implement-the-galton-board" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="implement-the-galton-board"><span class="header-section-number">3.3.1</span> Implement the Galton Board</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if libraries are installed; install if not.</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pacman"</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(animation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set number of balls and rows following the example code</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n.balls <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>n.rows <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ani.options(nmax = n.balls + n.rows - 2)</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># quincunx(balls = n.balls, layers = n.rows)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Follow example code to identify the resulting bin </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">size =</span> (n.rows <span class="sc">-</span> <span class="dv">1</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] -0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5 -0.5  0.5 -0.5  0.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bin <span class="ot">&lt;-</span> <span class="fu">sum</span>(path)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of a for loop</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n.times <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n.times) {</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1
+[1] 2
+[1] 3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another example of a for loop</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>n.times <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, n.times)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n.times){</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(output[(i<span class="dv">-2</span>)<span class="sc">:</span>(i<span class="dv">-1</span>)])</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 2 3 5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of how to make the Q-Q plot</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>norm.vals <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(norm.vals)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(norm.vals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rios_evr5086_hw3_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="exercise-4" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">3.4</span> Exercise 4</h2>
 </section>
-<section id="links-to-colab-and-github" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="links-to-colab-and-github"><span class="header-section-number">3.5</span> Links to Colab and GitHub</h2>
+<section id="exercise" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercise</h1>
+<ul>
+<li>Use comments to explain what the code does and who wrote it</li>
+<li>Clears existing variables from memory and close open figures</li>
+<li>Set values for the number of balls to drop and the number of rows of pins</li>
+<li>Create vector output, initially populated with NAs</li>
+<li>Use a loop to run through values (1:n.balls), determine and store results</li>
+<li>Make a histogram of outputs</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Develop a function to conduct the exercise</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>run_board <span class="ot">&lt;-</span> <span class="cf">function</span>(n_rows, n_balls){</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n_balls) <span class="co"># Create vector for output</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span> n_balls){ <span class="co"># Loop over given number of balls</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    path_i <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>),<span class="at">size =</span> (n_rows <span class="sc">-</span> <span class="dv">1</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    output[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(path_i) <span class="co"># Sum over samples to obtain bin</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(output)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeatedly run the function with different n_balls</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>run5 <span class="ot">&lt;-</span> <span class="fu">run_board</span>(<span class="at">n_rows =</span> <span class="dv">10</span>, <span class="at">n_balls =</span> <span class="dv">10</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(run5, <span class="at">main =</span> <span class="st">""</span>, </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Bin"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>) <span class="co"># Create histogram</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(run5, <span class="at">main =</span> <span class="st">""</span>) <span class="co"># Create Q-Q plot</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(run5, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-galton1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-galton1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton1" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton1-1.png" class="img-fluid figure-img" data-ref-parent="fig-galton1" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Histogram
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton1" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton1-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton1-2.png" class="img-fluid figure-img" data-ref-parent="fig-galton1" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Q-Q Plot
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-galton1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Results of replicating the Galton board dynamics with 10 rows and 10 balls.
+</figcaption>
+</figure>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeatedly run the function with different n_balls</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>run5 <span class="ot">&lt;-</span> <span class="fu">run_board</span>(<span class="at">n_rows =</span> <span class="dv">10</span>, <span class="at">n_balls =</span> <span class="dv">20</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(run5, <span class="at">main =</span> <span class="st">""</span>, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Bin"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>) <span class="co"># Create histogram</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(run5, <span class="at">main =</span> <span class="st">""</span>) <span class="co"># Create Q-Q plot</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(run5, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-galton2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-galton2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton2" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton2-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton2-1.png" class="img-fluid figure-img" data-ref-parent="fig-galton2" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Histogram
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton2" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton2-2.png" class="img-fluid figure-img" data-ref-parent="fig-galton2" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Q-Q Plot
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-galton2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Results of replicating the Galton board dynamics with 10 rows and 20 balls.
+</figcaption>
+</figure>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeatedly run the function with different n_balls</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>run5 <span class="ot">&lt;-</span> <span class="fu">run_board</span>(<span class="at">n_rows =</span> <span class="dv">10</span>, <span class="at">n_balls =</span> <span class="dv">30</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(run5, <span class="at">main =</span> <span class="st">""</span>, </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Bin"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>) <span class="co"># Create histogram</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(run5, <span class="at">main =</span> <span class="st">""</span>) <span class="co"># Create Q-Q plot</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(run5, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-galton3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-galton3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton3" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton3-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton3-1.png" class="img-fluid figure-img" data-ref-parent="fig-galton3" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Histogram
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton3" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton3-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton3-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton3-2.png" class="img-fluid figure-img" data-ref-parent="fig-galton3" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton3-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Q-Q Plot
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-galton3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: Results of replicating the Galton board dynamics with 10 rows and 30 balls.
+</figcaption>
+</figure>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeatedly run the function with different n_balls</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>run5 <span class="ot">&lt;-</span> <span class="fu">run_board</span>(<span class="at">n_rows =</span> <span class="dv">10</span>, <span class="at">n_balls =</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(run5, <span class="at">main =</span> <span class="st">""</span>, </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Bin"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>) <span class="co"># Create histogram</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(run5, <span class="at">main =</span> <span class="st">""</span>) <span class="co"># Create Q-Q plot</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(run5, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-galton4" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-galton4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton4-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton4-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton4-1.png" class="img-fluid figure-img" data-ref-parent="fig-galton4" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton4-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Histogram
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton4-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton4-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton4-2.png" class="img-fluid figure-img" data-ref-parent="fig-galton4" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton4-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Q-Q Plot
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-galton4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.4: Results of replicating the Galton board dynamics with 10 rows and 10^2 balls.
+</figcaption>
+</figure>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeatedly run the function with different n_balls</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>run5 <span class="ot">&lt;-</span> <span class="fu">run_board</span>(<span class="at">n_rows =</span> <span class="dv">10</span>, <span class="at">n_balls =</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(run5, <span class="at">main =</span> <span class="st">""</span>, </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Bin"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>) <span class="co"># Create histogram</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(run5, <span class="at">main =</span> <span class="st">""</span>) <span class="co"># Create Q-Q plot</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(run5, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-galton5" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-galton5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton5" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton5-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton5-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton5-1.png" class="img-fluid figure-img" data-ref-parent="fig-galton5" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton5-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Histogram
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-galton5" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-galton5-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-galton5-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-galton5-2.png" class="img-fluid figure-img" data-ref-parent="fig-galton5" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-galton5-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Q-Q Plot
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-galton5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.5: Results of replicating the Galton board dynamics with 10 rows and 10^4 balls.
+</figcaption>
+</figure>
+</div>
+<div style="page-break-after: always;"></div>
+<section id="exercise-4" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">4.1</span> Exercise 4</h2>
+<p>Based on the histograms and Q–Q plots, the waiting time between Old Faithful eruptions is not approximately normally distributed (<a href="../assignment4/rios_evr5086_hw4.html#fig-faithful" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>). The histogram is clearly bimodal, and the Q–Q plot shows systematic departures from the red reference line, indicating a lack of correspondence between the theoretical normal quantiles and the sample quantiles. By contrast, based on the shape of the histogram and the close alignment with the red line in the Q–Q plot in <a href="#fig-iris3" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>, the sepal length data for Iris setosa appears to be approximately normally distributed.</p>
+<section id="generate-histograms-and-q-q-plots" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="generate-histograms-and-q-q-plots"><span class="header-section-number">4.1.1</span> Generate histograms and Q-Q plots</h3>
+<section id="old-faithful-eruptions" class="level4" data-number="4.1.1.1">
+<h4 data-number="4.1.1.1" class="anchored" data-anchor-id="old-faithful-eruptions"><span class="header-section-number">4.1.1.1</span> Old Faithful eruptions</h4>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of waiting times</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(faithful<span class="sc">$</span>waiting,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histogram of Waiting Times"</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="fu">paste0</span>(<span class="st">"Frequency (n = "</span>, <span class="fu">length</span>(faithful<span class="sc">$</span>waiting), <span class="st">")"</span>),</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Waiting time between eruption (minutes)"</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Q-Q plot of waiting times</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(faithful<span class="sc">$</span>waiting,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">"Q-Q Plot of Waiting Times"</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(faithful<span class="sc">$</span>waiting, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-faithful" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-faithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-faithful" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-faithful-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-faithful-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-faithful-1.png" class="img-fluid figure-img" data-ref-parent="fig-faithful" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-faithful-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Histogram
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-faithful" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-faithful-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-faithful-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-faithful-2.png" class="img-fluid figure-img" data-ref-parent="fig-faithful" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-faithful-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Q-Q Plot
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-faithful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.6: Histogram and Q-Q plot for the waiting time between eruptions of the Old Faithful geyser in yellowstone national park, WY.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sepal-length-of-setosa-irises" class="level4" data-number="4.1.1.2">
+<h4 data-number="4.1.1.2" class="anchored" data-anchor-id="sepal-length-of-setosa-irises"><span class="header-section-number">4.1.1.2</span> Sepal length of setosa irises</h4>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of waiting times</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris3[, <span class="st">"Sepal L."</span>, <span class="st">"Setosa"</span>],</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histogram of Sepal Length"</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="fu">paste0</span>(<span class="st">"Frequency (n = "</span>, </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">length</span>(iris3[, <span class="st">"Sepal L."</span>, <span class="st">"Setosa"</span>]), <span class="st">")"</span>),</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Sepal length in cm"</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Q-Q plot of waiting times</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(iris3[, <span class="st">"Sepal L."</span>, <span class="st">"Setosa"</span>],</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">"Q-Q Plot of Sepal Length"</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(iris3[, <span class="st">"Sepal L."</span>, <span class="st">"Setosa"</span>], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-iris3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-iris3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-iris3" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-iris3-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-iris3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-iris3-1.png" class="img-fluid figure-img" data-ref-parent="fig-iris3" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-iris3-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Histogram
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-iris3" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-iris3-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-iris3-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="rios_evr5086_hw3_files/figure-html/fig-iris3-2.png" class="img-fluid figure-img" data-ref-parent="fig-iris3" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-iris3-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Q-Q Plot
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iris3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.7: Histogram and Q-Q plot of sepal length of setosa irises in cm.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="links-to-colab-and-github" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="links-to-colab-and-github"><span class="header-section-number">4.2</span> Links to Colab and GitHub</h2>
 <p><a href="https://colab.research.google.com/drive/1B3U0Re5mH4aCAfyJ31baLeZROpBaTjkc">Assignment 2 Google Colab</a></p>
 <p><a href="https://arios101-fiu.github.io/EVR-5086-Assignements/assignment3/rios_evr5086_hw3.html">Quarto book chapter on GitHub</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -637,6 +1564,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../assignment4/rios_evr5086_hw4.html" class="pagination-link" aria-label="Assignment 4">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Assignment 4</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

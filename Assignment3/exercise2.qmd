@@ -1,3 +1,230 @@
 ## Exercise 2
 
+In this part of the assignment, I plotted sea-level data and temperature rates of change over time. To save time when re-running the code, I added if statements that only download the data if they do not exist locally.
 
+I ran into a couple early challenges. First, working with .txt files was a little challenging because I am used to .csv files, which usually already have descriptive column names and straightforward data frame structures. In trying a few options for how to read in the sea level data, I learned how to automatically ignore the comments beginning with "%" which streamline my code so I did not have to hard-code the lines to read. The next challenge was the way the time variable. I had not worked with decimal dates before, but I used date_decimal() from the lubridate to extract the dates into a format that was easier for me to interpret In reproducing and saving the three-panel plot (Atmospheric CO₂ (top), global mean surface-air temperature anomaly (middle), and global mean sea level anomaly (bottom)), I followed the code provided in lab1_sample.R. I then reproduced it in a multi-panel plot that  renders directly in this document (@fig-three-panel).
+
+To answer how much atmospheric carbon dioxide concentrations, global mean temperatures, and sea levels changed between 1900 and the early part of the present century I subset each data set into "early" (1900-1910) and "recent" (2000-2010) and compared the mean values. The atmospheric carbon increased by 25.64 ppm (73%). Temperature and sea level both fluctuate between seasonally, but similar to the change seen for CO2, they also increased over those 100 years. The mean temperature increased by 0.93 degrees, and the mean sea level increased by 194 mm.
+
+The last part of Exercise 2 involved calculating the rates of temperature change. I checked the data source to clarify why I was using column 14 and why the value was being divided by 100. I learned that the anomalies are stored as hundredths of a degree. Also, column 14 reflects information summarized across the 12 months, which are also provided in separate columns. Initially, I plotted the rate of change on the same axis as the original data series (@fig-dt1) using a red line for the rate and adding a legend. I also produced separate panels to more easily compare them (@fig-dt2). The results show that prior to 1970 there are fewer years with extreme increases or decreases. After the 1970, the dips and peaks are consistently more extreme in both direction. Although there are a few strong dips in the later half of the time series, summing over the values, indicated that the increases are more extreme overall. This corresponds with the upward trend observed in the global mean temperature anomaly plot, where the cyclical nature of the series is also evident.
+
+
+### Sea level anomaly data
+
+```{r message=FALSE}
+# Check if libraries are installed; install if not.
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(here, lubridate, ggplot2)
+```
+
+```{r}
+# Create a folder for storing downloaded files
+if (!file.exists(here("assignment3/data"))) {
+  dir.create(here("assignment3/data"))
+}
+
+# Download and read in the sea level anomaly data from Jevrejeva et al. (2014)
+if (!file.exists(here("assignment3/data/jevrejeva2014_gmsl.txt"))) {
+  download.file(
+    "https://psmsl.org/products/reconstructions/gslGPChange2014.txt",
+    here("assignment3/data/jevrejeva2014_gmsl.txt")
+  )
+}
+
+# Read in and ignore lines with comments (starting with %)
+sl.data <-  read.table(here("assignment3/data/jevrejeva2014_gmsl.txt"), 
+                       comment = "%")
+
+# Assign column names
+colnames(sl.data) <-  
+  c("time", "rate_mm", "rate_err_mm", "gmsl_mm", "gmsl_err_mm")
+
+# Format date
+sl.data$date_decimal <- lubridate::date_decimal(sl.data$time)
+
+```
+
+```{r}
+# Conditionally download files used in lab1_sample.R
+if (!file.exists(here("assignment3/data/co2_mm_mlo.txt"))) {
+  download.file(
+    "ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_mm_mlo.txt",
+    here("assignment3/data/co2_mm_mlo.txt")
+  )
+}
+
+if (!file.exists(here("assignment3/data/law2006.txt"))) {
+  download.file(
+    "ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2006.txt",
+    here("assignment3/data/law2006.txt")
+  )
+}
+
+if (!file.exists(here("assignment3/data/GLB.Ts+dSST.txt"))) {
+  download.file(
+    "http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt", 
+    here("assignment3/data/GLB.Ts+dSST.txt")
+  )
+}
+
+# Read in the CO2 data  
+loa.co2.data <- read.table(here("assignment3/data/co2_mm_mlo.txt"),
+                           skip = 57, header = FALSE)
+law.co2.data <- read.table(here("assignment3/data/law2006.txt"), 
+                           skip = 183, nrows = 2004, 
+                           header = FALSE)
+
+# Read in the GISS temperature data  
+begin.rows <- c(9, 31, 53, 75, 97, 119, 141)
+num.rows <- c(19, 20, 20, 20, 20, 20, 14)
+temp.data <- matrix(NA, nrow = sum(num.rows), ncol = 20)
+temp.data[1: num.rows[1], ] <- as.matrix(
+  read.table("data/GLB.Ts+dSST.txt", skip = begin.rows[1], 
+             nrows = num.rows[1], header = FALSE)
+)
+for (i in 2: length(begin.rows)) {
+  temp.data[(sum(num.rows[1: i- 1])+ 1): sum(num.rows[1: i]), ] <- 
+    as.matrix(read.table("data/GLB.Ts+dSST.txt", skip = begin.rows[i], 
+                         nrows = num.rows[i], header = FALSE))
+}
+```
+
+```{r}
+# Create a folder to store figues as pdfs  
+if (!file.exists(here("assignment3/figures"))) {
+  dir.create(here("assignment3/figures"))
+}
+
+# Plot
+pdf(here("assignment3/figures/lab1_sample_plot2.pdf"),
+    width = 4.5, height = 6)
+par(mfrow = c(3, 1), cex = 0.66)
+plot(law.co2.data[, 1], law.co2.data[, 6], type = "l", xlim = c(1900, 2020), 
+     ylim = c(290, 400), bty = "n", xlab = "Time (yr)", 
+     ylab = "Atmospheric carbon dioxide (ppm)")
+lines(loa.co2.data[, 3], loa.co2.data[, 5], type = "l", col = "blue")
+legend("topleft", c("Law Dome ice core record", "Mauna Loa measurements"), 
+       col = c("black", "blue"), lwd = 1, bty = "n")
+plot(temp.data[, 1], temp.data[, 14]/ 100, type = "l", xlim = c(1900, 2020), 
+     ylim = c(-0.6, 0.7), bty = "n", xlab = "Time (yr)", 
+     ylab = "Global mean temperature anomaly (K)")
+plot(sl.data$time, sl.data$gmsl_mm , type = "l", xlim = c(1900, 2020),
+      ylim = c(-50, 200), bty = "l", xlab = "Time (yr)", 
+     ylab = "Sea level anomoly (mm)")
+
+# Close the device and make the return value invisible
+invisible(dev.off())
+```
+
+```{r}
+#| label: fig-three-panel
+#| fig-cap: "Atmospheric CO₂ (top), global mean surface-air temperature anomaly (middle), and global mean sea level anomaly (bottom), 1900–~2015."
+#| fig-alt: "Three time-series panels for CO₂, temperature anomaly, and sea level anomaly."
+#| fig-subcap:
+#|   - "Atmospheric CO2"
+#|   - "Global mean temperature anomaly"
+#|   - "Sea level anomaly (mm)"
+#| layout-nrow: 2
+#| layout-ncol: 2
+
+# Re run code to print in Quarto html and pdf
+
+# CO2
+plot(law.co2.data[, 1], law.co2.data[, 6],
+     type = "l", xlim = c(1900, 2020), ylim = c(290, 400),
+     bty = "n", xlab = "Time (yr)", ylab = "Atmospheric CO2 (ppm)")
+lines(loa.co2.data[, 3], loa.co2.data[, 5], type = "l", col = "blue")
+legend("topleft",
+       c("Law Dome ice core record", "Mauna Loa measurements"),
+       col = c("black", "blue"), lwd = 1, bty = "n")
+
+# Temperature anomaly
+plot(temp.data[, 1], temp.data[, 14] / 100,
+     type = "l", xlim = c(1900, 2020), ylim = c(-0.6, 0.7),
+     bty = "n", xlab = "Time (yr)",
+     ylab = "Global mean temperature anomaly (K)")
+
+# Sea level anomaly
+plot(sl.data$time, sl.data$gmsl_mm,
+     type = "l", xlim = c(1900, 2020), ylim = c(-50, 200),
+     bty = "n", xlab = "Time (yr)",
+     ylab = "Sea level anomaly (mm)")
+
+```
+
+### lab1_sample.R Question 1
+
+By how much have atmospheric carbon dioxide concentrations, global mean temperatures, and sea levels changed between 1900 and the early part of the present century?
+
+```{r}
+# Create filtered subsets of each data set to calculate differences
+early_co2 <- law.co2.data[law.co2.data$V1 >= 1900 & law.co2.data$V1 < 1910, ]
+recent_co2 <- law.co2.data[law.co2.data$V1 >= 2000 & law.co2.data$V1 < 2010, ]
+early_temp <- temp.data[temp.data[, 1] >= 1900 & temp.data[, 1] < 1910, ]
+recent_temp <-temp.data[temp.data[, 1] >= 2000 & temp.data[, 1] < 2010, ]
+early_sea <- sl.data[floor(sl.data$time) >= 1900 & floor(sl.data$time) < 1910, ]
+recent_sea <- sl.data[floor(sl.data$time) >= 2000 & floor(sl.data$time) < 2010, ]
+
+# Calculate percent changes (c) or percent differences (pc)
+pc_co2 <- round((mean(recent_co2[, 6]) - mean(early_co2[, 6])) / 
+                  mean(early_co2[, 6]), 4)*100 #25.64 percent
+c_co2 <- mean(recent_co2[, 6]) - mean(early_co2[, 6]) #73.2 percent
+c_temp <- mean(recent_temp[, 14]/100) - mean(early_temp[, 14]/100) #0.93 degrees
+c_sea <- mean(recent_sea$gmsl_mm) - mean(early_sea$gmsl_mm) #194 mm
+```
+
+### Rates of temperature change
+
+```{r}
+#| label: fig-dt1
+#| fig-cap: "Overalaid plots of global mean temperature anomaly (black) and its annual rate of change (red). "
+
+# Rate of change
+dT_dt_1 <- diff(temp.data[, 14])/100 / diff(temp.data[, 1])
+midpoint_t <- temp.data[-length(temp.data[, 1]), 1] + .5
+
+# GISS records sometimes use 100 to represent the average temperature
+par(mar = c(5, 7, 4, 2) + 0.1)
+plot(temp.data[, 1], temp.data[, 14] / 100, type = "l", xlim = c(1900, 2020), 
+     ylim = c(-0.6, 0.9), bty = "n", xlab = "Time (yr)", 
+     ylab = "Global mean temperature anomaly (K)
+     and annual rate of change", lwd = 1.5)
+lines(midpoint_t, dT_dt_1, type = "l", col = "red", lwd = 1.5)
+# Add a legend
+legend("topleft", 
+       legend = c("Global mean temperature anomaly (K)", 
+                  "Annual rate of temperature change"), 
+       lwd = 1.5, col = c("black", "red"), lty = 1, bty = "n", cex = 0.8)
+
+# Second y-axis for the rate
+# plot(temp.data[, 1], temp.data[, 14] / 100, 
+#      type = "l", xlim = c(1900, 2020),
+#      ylim = c(-0.6, 0.7), bty = "n", xlab = "Time (yr)",
+#      ylab = "Global mean temperature anomaly (K)", lwd = 1.5)
+# par(new = TRUE) # Prepare for second axis
+# plot(midpoint_t, dT_dt_1, type = "l", 
+#      xlim = c(1900, 2020), ylim = c(-0.5, 0.5),
+#      col = "red", xaxt = "n", yaxt = "n", xlab = "", ylab = "", , lwd = 1.5)
+# axis(side = 4, col = "red", col.axis = "red")
+# mtext("Annual rate of change", side = 4, line = 3, col = "red")
+
+```
+
+```{r}
+#| label: fig-dt2
+#| fig-cap: "Global mean temperature anomaly (black) and its annual rate of change (red)."
+#| fig-subcap: 
+#|   - "Global mean temperature anomaly"
+#|   - "Annual rate of change"
+#| layout-nrow: 2
+
+plot(temp.data[, 1], temp.data[, 14] / 100, type = "l", xlim = c(1900, 2020), 
+     ylim = c(-0.6, 0.7), bty = "n", xlab = "Time (yr)", 
+     ylab = "Global mean temperature anomaly (K)", lwd = 1.5)
+
+plot(midpoint_t, dT_dt_1, type = "l", col = "red", lwd = 1.5, 
+     xlim = c(1900, 2020),, ylim = c(-0.3, 0.3), bty = "n", 
+     xlab = "Time (yr)", ylab = "Annual rate of change")
+```
+
+ {{< pagebreak >}}

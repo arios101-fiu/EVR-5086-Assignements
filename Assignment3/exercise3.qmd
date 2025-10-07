@@ -1,3 +1,167 @@
 ## Exercise 3
 
+To prepare for this exercise, I included example code that was provided in the lab manual. I left it in because I reuse parts of it later, including the sampling examples to identify resulting "Galton Board" bins, and the code to generate histograms and Q-Q plots. For the actual exercise further down in this chapter, I created a function I could reuse for each variation across  different number of balls. Using the function with intentional return vectors allowed me not to worry about clearing existing variables or figures from memory. I ran the function with 10 bins, and with 10, 20, 30, 100, and 10^4 balls. With 10 and 20 balls the histogram and Q-Q plot do not look normal. At about 30 balls the histogram and Q-Q plot begin to look approximately normal (@fig-galton3). Once the number of balls is large, as in the runs with 10^2^ (@fig-galton4) and very large with 10^4^ balls (@fig-galton5), the histogram looks normal but the Q-Q plot shows a slight departure. This may relate to the discrete and bounded nature of the bin outcomes, while the Q-Q plot may be better suited for continuous data.
 
+
+### Implement the Galton Board
+
+```{r message=FALSE}
+# Check if libraries are installed; install if not.
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(animation)
+```
+
+```{r}
+# Set number of balls and rows following the example code
+n.balls <- 200
+n.rows <- 15
+
+# ani.options(nmax = n.balls + n.rows - 2)
+# quincunx(balls = n.balls, layers = n.rows)
+```
+
+```{r}
+# Follow example code to identify the resulting bin 
+path <- sample(x = c(-0.5, 0.5), size = (n.rows - 1), replace = TRUE)
+print(path)
+bin <- sum(path)
+print(bin)
+```
+
+```{r}
+# Example of a for loop
+n.times <- 3
+for (i in 1:n.times) {
+  print(i)
+}
+```
+
+```{r}
+# Another example of a for loop
+n.times <- 5
+output <- rep(1, n.times)
+for(i in 3:n.times){
+  output[i] <- sum(output[(i-2):(i-1)])
+}
+print(output)
+```
+
+```{r}
+# Example of how to make the Q-Q plot
+norm.vals <- rnorm(100, mean = 5, sd = 3)
+qqnorm(norm.vals)
+qqline(norm.vals)
+```
+
+# Exercise
+
+- Use comments to explain what the code does and who wrote it
+- Clears existing variables from memory and close open figures
+- Set values for the number of balls to drop and the number of rows of pins
+- Create vector output, initially populated with NAs
+- Use a loop to run through values (1:n.balls), determine and store results
+- Make a histogram of outputs
+
+```{r}
+# Develop a function to conduct the exercise
+run_board <- function(n_rows, n_balls){
+  output <- rep(NA, n_balls) # Create vector for output
+  for (i in 1: n_balls){ # Loop over given number of balls
+    path_i <- sample(x = c(-0.5, 0.5),size = (n_rows - 1), replace = TRUE)
+    output[i] <- sum(path_i) # Sum over samples to obtain bin
+  }
+  return(output)
+}
+```
+
+```{r}
+#| label: fig-galton1
+#| fig-cap: "Results of replicating the Galton board dynamics with 10 rows and 10 balls."
+#| fig-subcap:
+#|   - "Histogram"
+#|   - "Q-Q Plot"
+#| layout-ncol: 2
+
+# Repeatedly run the function with different n_balls
+run5 <- run_board(n_rows = 10, n_balls = 10)
+
+hist(run5, main = "", 
+     xlab = "Bin", ylab = "Frequency") # Create histogram
+qqnorm(run5, main = "") # Create Q-Q plot
+qqline(run5, col = "red", lwd = 2)
+
+```
+
+```{r}
+#| label: fig-galton2
+#| fig-cap: "Results of replicating the Galton board dynamics with 10 rows and 20 balls."
+#| fig-subcap:
+#|   - "Histogram"
+#|   - "Q-Q Plot"
+#| layout-ncol: 2
+
+# Repeatedly run the function with different n_balls
+run5 <- run_board(n_rows = 10, n_balls = 20)
+
+hist(run5, main = "", 
+     xlab = "Bin", ylab = "Frequency") # Create histogram
+qqnorm(run5, main = "") # Create Q-Q plot
+qqline(run5, col = "red", lwd = 2)
+
+```
+
+```{r}
+#| label: fig-galton3
+#| fig-cap: "Results of replicating the Galton board dynamics with 10 rows and 30 balls."
+#| fig-subcap:
+#|   - "Histogram"
+#|   - "Q-Q Plot"
+#| layout-ncol: 2
+
+# Repeatedly run the function with different n_balls
+run5 <- run_board(n_rows = 10, n_balls = 30)
+
+hist(run5, main = "", 
+     xlab = "Bin", ylab = "Frequency") # Create histogram
+qqnorm(run5, main = "") # Create Q-Q plot
+qqline(run5, col = "red", lwd = 2)
+
+```
+
+```{r}
+#| label: fig-galton4
+#| fig-cap: "Results of replicating the Galton board dynamics with 10 rows and 10^2 balls."
+#| fig-subcap:
+#|   - "Histogram"
+#|   - "Q-Q Plot"
+#| layout-ncol: 2
+
+# Repeatedly run the function with different n_balls
+run5 <- run_board(n_rows = 10, n_balls = 10^2)
+
+hist(run5, main = "", 
+     xlab = "Bin", ylab = "Frequency") # Create histogram
+qqnorm(run5, main = "") # Create Q-Q plot
+qqline(run5, col = "red", lwd = 2)
+
+```
+
+```{r}
+#| label: fig-galton5
+#| fig-cap: "Results of replicating the Galton board dynamics with 10 rows and 10^4 balls."
+#| fig-subcap:
+#|   - "Histogram"
+#|   - "Q-Q Plot"
+#| layout-ncol: 2
+
+# Repeatedly run the function with different n_balls
+run5 <- run_board(n_rows = 10, n_balls = 10^4)
+
+hist(run5, main = "", 
+     xlab = "Bin", ylab = "Frequency") # Create histogram
+qqnorm(run5, main = "") # Create Q-Q plot
+qqline(run5, col = "red", lwd = 2)
+
+```
+
+ {{< pagebreak >}}

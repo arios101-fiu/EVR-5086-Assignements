@@ -1,0 +1,166 @@
+## Exercise 1
+
+To complete this assignment in R, I used the following packages:
+
+- here: here() enables easy file referencing
+- dplyr: functions for common data manipulation
+- tidyr: functions for reshaping data
+- moments: functions for kurtosis and skewness
+- fBasics: dagoTest() for the D'Agostino normality test
+
+
+
+```{r message=FALSE}
+# Check if libraries are installed; install if not.
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(here, dplyr, ggplot2, tidyr, moments, fBasics)
+```
+
+```{r}
+# Read in and subset MIA_J-D_T_Precip_inches.csv
+mia_rain <- read.csv(here("assignment4", "data", "MIA_J-D_T_Precip_inches.csv"),
+                   header = FALSE)
+
+# Add descriptive columnn names
+names(mia_rain) <- c("year", "jan", "feb", "mar", "apr", "may", "jun",
+                     "jul", "aug", "sep", "oct", "nov", "dec", "total")
+
+# Compute monthly fraction by dividing all months by the total
+mia_rain_fraction <- mia_rain %>%
+      mutate(across(-c("year", "total"), ~ round(. / total, 4)))
+```
+
+```{r}
+#| label: fig-mia_rain_fraction_apr
+#| fig-cap: "Fraction of annual rainfall during the month of April for the City of Miami, Florida, from 1906 to 2022."
+#| fig-alt: "Gray bars reflect the month's fraction of annual rainfall."
+#| 
+#Plot the time series for April's fraction of the annual total for each year
+ggplot(mia_rain_fraction, aes(x = year, y = apr)) +
+  geom_line() +
+  labs(
+    title = "Fraction of annual rainfall during April for Miami, Florida",
+    subtitle = "Comparison between 1906 and 2022",
+    x = "Year",
+    y = "Fraction of annual rainfall during April"
+  )
+```
+
+
+
+## Exercise 2
+
+
+
+```{r}
+# Prep month levels for efficient ordering
+month_levels <- c("jan", "feb", "mar", "apr", "may", "jun",
+                  "jul", "aug", "sep", "oct", "nov", "dec")
+
+# Calculate n
+n_years <- n_distinct(mia_rain_fraction, "year")
+
+# Prep data for upcoming analyses
+mia_rain_fraction_tidy <- mia_rain_fraction |>
+  # Remove total
+  select(-total) |> 
+  # Reformat to tidy format (long)
+  pivot_longer( 
+    cols = !year,
+    names_to = "month",
+    values_to = "fraction"
+  ) |>
+  # Log transform monthly fractions and define month factor levels
+  mutate(
+    month = factor(month, levels = month_levels, ordered = TRUE),
+    log10_fraction = log10(fraction)
+  ) |>
+  # Reformat to tidy format (long)
+  pivot_longer(
+    cols = !c(year, month),
+    names_to = "stat",
+    values_to = "values"
+  ) |>
+  # Sort by stat and year
+  arrange(stat, year, month) |>
+  # Rank by month and stat
+  group_by(month, stat) %>%
+  mutate(rank = min_rank(values)) %>%
+  ungroup() |>
+  # Compute return period
+  mutate(recurrance = (n_years + 1) / rank)
+
+# Compute descriptive statistics for mia_rain_fraction
+mia_rain_fraction_summary <- mia_rain_fraction_tidy |>
+  # Run calculation on unique combinations of year and stat
+  group_by(month, stat) |>
+  # Calculate summary stats
+  summarise(min = min(values),
+            q1 = quantile(values, 0.25), 
+            median = median(values), 
+            mean = round(mean(values), 4), 
+            q3 = quantile(values, 0.75), 
+            max = max(values),
+            variance = round(var(values), 4),
+            sd = round(sd(values), 4),
+            sk = skewness(values),
+            ku = kurtosis(values),
+            .groups = "drop") |>
+  arrange(stat, month)
+```
+
+```{r}
+
+```
+
+
+
+## Exercise 3
+
+
+
+```{r}
+# Generate realization of samples from known normal distributions
+sample_n <- 1000
+
+apr_rain_fraction_sample <- round(
+  rnorm(n = sample_n, 
+        mean = mia_rain_fraction_summary |>
+          filter(stat == "fraction",
+                 month == "apr") |>  pull(mean),
+        sd = mia_rain_fraction_summary$sd[1]), 4
+)
+
+apr_rain_fraction_log10_sample <- round(
+  rnorm(n = sample_n, 
+        mean = mia_rain_fraction_summary |>
+          filter(stat == "log10_fraction",
+                 month == "apr") |>  pull(mean),
+        sd = mia_rain_fraction_summary$sd[1]), 4
+)
+
+```
+
+
+
+## Exercise 4
+
+
+
+```{r}
+# Normal tests on rainfall data, sample realization, and Old Faithful
+dago_mia_rain <- dagoTest(mia_rain_fraction$apr)
+dago_mia_rain_log10 <- dagoTest(log10(mia_rain_fraction$apr))
+dago_faitful <- dagoTest(faithful$waiting)
+```
+
+
+
+## Exercise 5
+
+
+
+```{r}
+
+
+```

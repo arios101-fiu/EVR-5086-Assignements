@@ -1,16 +1,19 @@
 ---
-title: "Assignment 3 - "
+title: "Assignment 3 - Normal distributions and the Galton board"
 subtitle: "EVR-5086 Fall 2025"
 author: "Adyan Rios"
-date: "2025-09-23"
+date: "2025-09-24"
 format:
   pdf:
     toc: true
     toc-depth: 2
     number-sections: true
+    shift-heading-level-by: -1
 ---
 
-## Assignment 3 - TBD {.unnumbered}
+## Assignment 3 - Normal distributions and the Galton board {.unnumbered}
+
+For this assignment follows the readings and exercises in "Risk Analysis in the Earth Sciences: A Lab Manual with Exercises in R" Version 3.
 
 {{< include exercise1.qmd >}} 
 

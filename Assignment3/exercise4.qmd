@@ -1,3 +1,49 @@
 ## Exercise 4
 
+Based on the histograms and Q–Q plots, the waiting time between Old Faithful eruptions is not approximately normally distributed (@fig-faithful). The histogram is clearly bimodal, and the Q–Q plot shows systematic departures from the red reference line, indicating a lack of correspondence between the theoretical normal quantiles and the sample quantiles. By contrast, based on the shape of the histogram and the close alignment with the red line in the Q–Q plot in @fig-iris3, the sepal length data for Iris setosa appears to be approximately normally distributed.
 
+### Generate histograms and Q-Q plots
+
+#### Old Faithful eruptions
+
+```{r}
+#| label: fig-faithful
+#| fig-cap: "Histogram and Q-Q plot for the waiting time between eruptions of the Old Faithful geyser in yellowstone national park, WY."
+#| fig-subcap:
+#|   - "Histogram"
+#|   - "Q-Q Plot"
+#| layout-ncol: 2
+
+# Histogram of waiting times
+hist(faithful$waiting,
+     main = "Histogram of Waiting Times",
+     ylab = paste0("Frequency (n = ", length(faithful$waiting), ")"),
+     xlab = "Waiting time between eruption (minutes)")
+
+# Q-Q plot of waiting times
+qqnorm(faithful$waiting,
+       main = "Q-Q Plot of Waiting Times")
+qqline(faithful$waiting, col = "red", lwd = 2)
+```
+
+#### Sepal length of setosa irises
+```{r}
+#| label: fig-iris3
+#| fig-cap: "Histogram and Q-Q plot of sepal length of setosa irises in cm."
+#| fig-subcap:
+#|   - "Histogram"
+#|   - "Q-Q Plot"
+#| layout-ncol: 2
+
+# Histogram of waiting times
+hist(iris3[, "Sepal L.", "Setosa"],
+     main = "Histogram of Sepal Length",
+     ylab = paste0("Frequency (n = ", 
+                   length(iris3[, "Sepal L.", "Setosa"]), ")"),
+     xlab = "Sepal length in cm")
+
+# Q-Q plot of waiting times
+qqnorm(iris3[, "Sepal L.", "Setosa"],
+       main = "Q-Q Plot of Sepal Length")
+qqline(iris3[, "Sepal L.", "Setosa"], col = "red", lwd = 2)
+```

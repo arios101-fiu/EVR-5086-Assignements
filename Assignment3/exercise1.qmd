@@ -1,3 +1,146 @@
 ## Exercise 1
 
+In this exercise I modified the provided lab0_sample.R to produce a histogram based on 10^4^ samples from a normal distribution with mean 5 and standard deviation 2 @fig-hist_1. I then produced two histograms for the standard normal distribution which has a mean 0 and standard deviation 1. The first was based on 10^4^ samples (@fig-hist_2) and the second one included only 10 samples (@fig-hist_3). In addition to the modifications outlined by the exercise, I included a legend on each plot, and I dynamically read sample size into the y-axis label. I organized my code using variable names that differed by the subscript (1-3) associated with each of the three respective histograms. A main difference between @fig-hist_1 and the other two histograms is how the distribution is centered around the mean of 5 and has a wider range of values compared to @fig-hist_2. These differences are driven by the differences in the respective means and standard deviations. Since the first two histograms have a large number of samples being drawn from the normal distribution function rnorm(), they resulting plots show the expected bell curve shape. However, since the third histogram (@fig-hist_3) is based on only 10 samples, we do not see the definition of the bell curve at all. When only using 10 samples, the standard normal distribution results in a smaller range of values than it did with 10^4^ samples. When the number of samples is large, there are more opportunities for values to be sampled. I explore the related probability density in the next part of this exercise. 
 
+In the final part of this first exercise, I plotted the formula for the normal distribution provided in EVR-5086 Assignment 3 (@fig-pdf). I noticed a small difference between the equation in the assignment and the one on Wikipedia, which I included in the same plot as a second curve in blue. Overall, exploring these formulas helped me better understand how normal distribution's characteristic symmetric bell curve shape is driven in its formula by e^-x^2. As shown in the examples in @fig-pdf larger the value in the exponential term of the natural log, the wider the distribution. In this exercise I do not need to use the full formula that is on Wikipedia because, when mean is 0 and the standard deviation is 1, some constant multipliers simplify to 1. In the R code, I used text() and expression() to include color-coded mathematical expressions in the top-left corner of the plot.
+
+### Modify code from lab0_sample.R
+
+```{r}
+#| label: fig-hist_1
+#| fig-cap: !expr paste0("Histogram generated from ", sprintf("%.2e", num_1), " random samples from a normal distribution associated with mean ", mu_1," and standard deviation ", sigma_1, ". The mean is indicated by a vertical red line. Blue dashed vertical lines show the mean minus the standard deviation and the mean plus the standard deviation.")
+#| fig-alt: "Histogram of normal data."
+
+# Modified code from lab0_sample.R
+
+# Set values
+num_1 <- 10^4   # number of random draws
+mu_1 <- 5       # mean of normal distribution to draw from
+sigma_1 <- 2    # standard deviation of normal distribution
+
+# Sample randomly from a normal distribution 
+x_1 <- rnorm(n = num_1, mean = mu_1, sd = sigma_1)
+
+# Plot the results as a histogram
+hist_1 <- hist(
+  x_1,                 # Vector for the histogram
+  main = "Adyan Rios", # Set title to my name
+  xlab = "Variable",
+  ylab = paste0("Frequency (n = ", sprintf("%.2e", num_1), ")"),
+  xaxt = "n"           # Turn off x-axis values
+)
+
+# Add custom x-axis ticks
+axis(side = 1, at = hist_1$breaks)
+
+# Indicate mean
+abline(v = mu_1, lwd = 2, col = "red")
+
+# Indicate mean ± SD
+abline(v = c(mu_1 + sigma_1, mu_1 - sigma_1), 
+       lwd = c(2), lty = 2, col = "blue")
+
+# Add a legend
+legend("topleft", legend = c("Mean", "Mean ± SD"), lwd = 2, 
+       col = c("red", "blue"), lty = c(1, 2), bty = "n")
+```
+
+### The **Standard** normal distribution
+
+```{r}
+#| label: fig-hist_2
+#| fig-cap: !expr paste0("Histogram generated from ", sprintf("%.2e", num_2), " random samples from a normal distribution associated with mean ", mu_2," and standard deviation ", sigma_2, ". The mean is indicated by a vertical red line. Blue dashed vertical lines show the mean minus the standard deviation and the mean plus the standard deviation.")
+#| fig-alt: "Histogram of normal data."
+
+# Set values
+num_2 <- 10^4   # number of random draws
+mu_2 <- 0       # mean of normal distribution to draw from
+sigma_2 <- 1    # standard deviation of normal distribution
+
+# Sample randomly from a normal distribution 
+x_2 <- rnorm(n = num_2, mean = mu_2, sd = sigma_2)
+
+# Plot the results as a histogram
+hist_2 <- hist(
+  x_2,                 # Vector for the histogram
+  main = "The Standard normal distribution", # Set title 
+  xlab = "Variable",   
+  ylab = paste0("Frequency (n = ", sprintf("%.2e", num_2), ")"),
+  xaxt = "n"           # Turn off x-axis values
+)
+
+# Add custom x-axis ticks
+axis(side = 1, at = hist_2$breaks)
+
+# Indicate mean
+abline(v = mu_2, lwd = 2, col = "red")
+
+# Indicate mean ± SD
+abline(v = c(mu_2 + sigma_2, mu_2 - sigma_2), 
+       lwd = c(2), lty = 2, col = "blue")
+
+# Add a legend
+legend("topleft", legend = c("Mean", "Mean ± SD"), lwd = 2, 
+       col = c("red", "blue"), lty = c(1, 2), bty = "n")
+```
+
+### The **Standard** normal distribution with only 10 samples
+
+```{r}
+#| label: fig-hist_3
+#| fig-cap: !expr paste0("Histogram generated from ", sprintf("%.2e", num_3), " random samples from a normal distribution associated with mean ", mu_3," and standard deviation ", sigma_3, ". The mean is indicated by a vertical red line. Blue dashed vertical lines show the mean minus the standard deviation and the mean plus the standard deviation.")
+#| fig-alt: "Histogram of normal data."
+
+# Set values
+num_3 <- 10   # number of random draws
+mu_3 <- 0       # mean of normal distribution to draw from
+sigma_3 <- 1    # standard deviation of normal distribution
+
+# Sample randomly from a normal distribution 
+x_3 <- rnorm(n = num_3, mean = mu_3, sd = sigma_3)
+
+# Plot the results as a histogram
+hist_3 <- hist(
+  x_3,                 # Vector for the histogram
+  main = "The Standard normal distribution", # Set title 
+  xlab = "Variable",
+  ylab = paste0("Frequency (n = ", sprintf("%.2e", num_3), ")"),
+  xaxt = "n"           # Turn off x-axis values
+)
+
+# Add custom x-axis ticks
+axis(side = 1, at = hist_3$breaks)
+
+# Indicate mean
+abline(v = mu_3, lwd = 2, col = "red")
+
+# Indicate mean ± SD
+abline(v = c(mu_3 + sigma_3, mu_3 - sigma_3), 
+       lwd = c(2), lty = 2, col = "blue")
+
+# Add a legend
+legend("topleft", legend = c("Mean", "Mean ± SD"), lwd = 2, 
+       col = c("red", "blue"), lty = c(1, 2), bty = "n")
+```
+
+### Plotting the normal distribution from Wikipedia
+
+```{r}
+#| label: fig-pdf
+#| fig-cap: Probability density plot for the normal distribution. The standard normal distribution (mean 0 and standard deviation 1) is shown by the curve in blue. Meanwhile, a normal distribution is also plotted in red with a slightly simplified equation.
+#| fig-alt: "Plot of normal data."
+#| 
+a <- seq(-3, 3, length.out = 100)
+
+plot(a, 1 / (sqrt(2 * 3.14)) * exp(-(a^2)), col = "red", type = "o",
+     main = "Probability density function",
+     xlab = "Variable x", # Label x-axis
+     ylab = "f(x)")       # Label x-axis
+points(a, 1 / (sqrt(2 * 3.14)) * exp( -(a^2) / 2), col = "blue")
+text(-2, 0.35, expression(f(x) == 1 / (sqrt(2 %*% 3.14)) * exp( -(x^2) / 2)), 
+     col = "blue", cex = 0.6)
+text(-2, 0.3, expression(f(x) == 1 / (sqrt(2 %*% 3.14)) * exp( -(x^2))), 
+     col = "red", cex = 0.6)
+
+```
+ {{< pagebreak >}}
