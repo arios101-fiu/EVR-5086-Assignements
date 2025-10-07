@@ -1,0 +1,16 @@
+---
+title: "Assignment 4"
+subtitle: "EVR-5086 Fall 2025"
+author: "Adyan Rios"
+date: "2025-09-30"
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    shift-heading-level-by: -1
+---
+
+## Assignment 4 {.unnumbered}
+
+{{< include exercise1.qmd >}}

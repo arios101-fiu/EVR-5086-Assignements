@@ -12,8 +12,9 @@ book:
     - assignment1/rios_evr5086_hw1.qmd
     - assignment2/rios_evr5086_hw2.qmd
     - assignment3/rios_evr5086_hw3.qmd
-
-  
+    - assignment4/rios_evr5086_hw4.qmd
+    - assignment5/rios_evr5086_hw5.qmd
+    
   site-url: https://arios101-fiu.github.io/EVR-5086-Assignement1/
   repo-url: https://github.com/arios101-fiu/EVR-5086-Assignement1
   repo-actions: [edit, source, issue]
@@ -27,6 +28,3 @@ format:
     theme: cosmo
   pdf:
     toc-depth: 2
-    
-editor: visual
-
